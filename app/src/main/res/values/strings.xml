@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HTDShoes_Pro1121</string>
+    <string name="choose_role">Choose Role</string>
+    <string-array name="user_roles">
+        <item>Admin</item>
+        <item>User</item>
+    </string-array>
+
+</resources>
