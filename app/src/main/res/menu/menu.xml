@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/tongquan"
+    android:icon="@drawable/baseline_home_24"
+    android:title="Tổng quan"
+    />
+    <item android:id="@+id/donHang"
+        android:icon="@drawable/outline_assignment_24"
+        android:title="Đơn hàng"
+
+        />
+    <item android:id="@+id/thongke"
+        android:icon="@drawable/baseline_trending_up_24"
+        android:title="Thống kê"
+        />
+    <item android:id="@+id/sanPham"
+        android:icon="@drawable/baseline_playlist_play_24"
+        android:title="Sản Phẩm"
+        />
+    <item android:id="@+id/taikhoan"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="Tài Khoản"
+        />
+
+
+
+
+</menu>

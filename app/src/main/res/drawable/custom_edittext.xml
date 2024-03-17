@@ -7,7 +7,7 @@
         android:color="@color/purple"
         />
     <corners
-        android:radius="27dp"
+        android:radius="20dp"
         />
 
 
