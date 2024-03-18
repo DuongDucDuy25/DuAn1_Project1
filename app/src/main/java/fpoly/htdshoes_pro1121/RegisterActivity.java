@@ -2,6 +2,7 @@ package fpoly.htdshoes_pro1121;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -79,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
             editor.apply();
 
             Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             finish(); // Finish the activity or navigate to the login screen
         } else {
             Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
