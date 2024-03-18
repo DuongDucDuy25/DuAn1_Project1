@@ -36,10 +36,7 @@ public class frg_tongquan extends Fragment {
         // Inflate the layout for this fragment
          View view=  inflater.inflate(R.layout.fragment_frg_tongquan, container, false);
          //ánh sạ
-        viewFlipper= view.findViewById(R.id.viewfliper);
-        recyclerViewmanhinhchinh= view.findViewById(R.id.recycleview);
 
-        drawerLayout=view.findViewById(R.id.drawerlatout);
 
 
         ActionViewFlipper();
