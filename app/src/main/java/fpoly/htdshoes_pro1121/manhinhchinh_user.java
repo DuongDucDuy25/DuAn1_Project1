@@ -1,12 +1,12 @@
 package fpoly.htdshoes_pro1121;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
+import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -15,22 +15,21 @@ import fpoly.htdshoes_pro1121.fragment.frg_donhang;
 import fpoly.htdshoes_pro1121.fragment.frg_sanpham;
 import fpoly.htdshoes_pro1121.fragment.frg_taikhoan;
 import fpoly.htdshoes_pro1121.fragment.frg_thongke;
-import fpoly.htdshoes_pro1121.fragment.frg_tongquan;
 import fpoly.htdshoes_pro1121.fragment.frg_tongquan_user;
 
-public class manhinhchinh_bottom extends AppCompatActivity {
+public class manhinhchinh_user extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manhinhchinh_bottom);
-        bottomNavigationView = findViewById(R.id.bottomnav);
+        setContentView(R.layout.activity_manhinhchinh_user);
+        bottomNavigationView = findViewById(R.id.bottomnav_user);
         //sử lý sự kiện khi chọn item
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId()==R.id.tongquan){
-                    frg_tongquan frgTongQuan= new frg_tongquan();
+                    frg_tongquan_user frgTongQuan= new frg_tongquan_user();
                     replaceFrg(frgTongQuan);
                 }else
                 if (item.getItemId()==R.id.donHang) {
@@ -53,9 +52,10 @@ public class manhinhchinh_bottom extends AppCompatActivity {
                 return true;
             }
         });
-    }public void replaceFrg(Fragment frg){
+
+    }
+    public void replaceFrg(Fragment frg){
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frmbottom,frg).commit();
     }
-
 }
