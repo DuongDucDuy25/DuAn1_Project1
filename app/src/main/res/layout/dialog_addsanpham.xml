@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:background="#E67878">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm Sản Phẩm"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textColor="#FF0000"
+            />
+
+        <EditText
+            android:id="@+id/edNameSanPham"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập tên Sản Phẩm "
+            />
+        <EditText
+            android:id="@+id/edMaCTSP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập Mã Chi Tiết Sản Phẩm "
+            />
+        <EditText
+            android:id="@+id/edMaTL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập Mã Thể Loại "
+            />
+        <EditText
+            android:id="@+id/edSoLuong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập Số Lượng "
+            />
+        <EditText
+            android:id="@+id/edGiaTien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập Giá Tiền "
+            />
+        <Button
+            android:id="@+id/btnAddSanPham"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADD"
+            android:backgroundTint="#008EFF"
+            android:textAllCaps="true"
+            />
+        <Button
+            android:id="@+id/btnCancelSanPham"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:backgroundTint="#FF0057"
+            android:textAllCaps="true"
+            />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

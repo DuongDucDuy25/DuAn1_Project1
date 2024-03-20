@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "HTDSHOES";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 4;
     public DBHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -40,14 +40,14 @@ public class DBHelper extends SQLiteOpenHelper {
                 "maSanPham INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "tenSanPham TEXT NOT NULL, " +
                 "maCTSP INTEGER REFERENCES ChiTietSanPham(maCTSP), " +
-                "maTheLoai INTEGER REFERENCES TheLoai(maTheLoai),"+
+                "maTL INTEGER REFERENCES TheLoai(maTL),"+
                 "giaTien INTEGER NOT NULL,"
                 +"soluong INTEGER NOT NULL)";
         db.execSQL(createTableSanPham);
         // tạo bảng chi tiết sản phẩm
         String createTableChiTietSanPham = "create table ChiTietSanPham("+
                 "maCTSP INTEGER PRIMARY KEY AUTOINCREMENT,"+
-                "maTheLoai INTEGER REFERENCES TheLoai(maTheLoai),"+
+                "maTL INTEGER REFERENCES TheLoai(maTL),"+
                 "mau TEXT NOT NULL,"+
                 "moTa TEXT NOT NULL,"+
                 "size INTERGER NOT NULL)";
@@ -55,7 +55,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //tạo bảng Thể Loại
         String createTableTheLoai = "create table TheLoai("+
-                "maTheLoai INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                "maTL INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 "tenTheLoai TEXT NOT NULL)";
         db.execSQL(createTableTheLoai);
 
@@ -79,7 +79,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "(2,'Phạm Văn Tài','Hà Nội','0988728378'),"+
                 "(3,'Trịnh Thị Quỳnh Anh','Thanh Hóa','0892384732')");
         db.execSQL("INSERT INTO DonHang VALUES(1,'08/03/2023',3,101923),(2,'09/03/2023',12,12342),(3,'10/03/2023',2,923848)");
-        db.execSQL("INSERT INTO SanPham VALUES(1,'Nike Air Force 1',1,1,2000,20),(2,'Mid Wolk Grey',2,2,3092,2),(3,'Mid Iron',3,3,9428,3)");
+        db.execSQL("INSERT INTO SanPham VALUES(1,'Nike Air Force 1',1,1,2000,2),(2,'Mid Wolk Grey',2,2,3000,2),(3,'Mid Iron',3,3,9000,3)");
 
     }
 
