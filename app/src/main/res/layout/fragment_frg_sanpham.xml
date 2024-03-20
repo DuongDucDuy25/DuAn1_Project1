@@ -10,6 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
@@ -37,6 +38,10 @@
                 android:gravity="center"
                 />
         </LinearLayout>
+=======
+        android:layout_height="match_parent"
+         />
+>>>>>>> 5708aa47eb2f398b702a7e5951b23918d3babb69
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView

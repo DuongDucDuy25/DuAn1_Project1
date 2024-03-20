@@ -5,6 +5,11 @@
         <item>Admin</item>
         <item>User</item>
     </string-array>
+<<<<<<< HEAD
     <string name="action_search">Tìm Kiếm</string>
+=======
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+>>>>>>> 5708aa47eb2f398b702a7e5951b23918d3babb69
 
 </resources>

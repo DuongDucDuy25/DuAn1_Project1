@@ -28,11 +28,33 @@ public class frg_tongquan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+<<<<<<< HEAD
         View view = inflater.inflate(R.layout.fragment_frg_tongquan, container, false);
 
         // Ánh xạ các thành phần trong layout
         viewPager = view.findViewById(R.id.viewpager);
         circleIndicator = view.findViewById(R.id.circleIndicator);
+=======
+         View view=  inflater.inflate(R.layout.fragment_frg_tongquan, container, false);
+         //ánh sạ
+
+
+
+        ActionViewFlipper();
+
+         return view;
+    }
+    private void ActionViewFlipper() {
+        List<Integer> mangquangcao= new ArrayList<>();
+        mangquangcao.add(R.drawable.logogiay);
+        mangquangcao.add(R.drawable.fpoly);
+        mangquangcao.add(R.drawable.logo1);
+        for (int i = 0; i <mangquangcao.size() ; i++) {
+            ImageView imageView = new ImageView(requireActivity().getApplicationContext());
+
+
+        }
+>>>>>>> 5708aa47eb2f398b702a7e5951b23918d3babb69
 
         setupViewPager();
 
