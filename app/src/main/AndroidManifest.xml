@@ -29,16 +29,29 @@
             android:exported="false" />
         <activity
             android:name=".ManHinhChaoAcivity"
+<<<<<<< HEAD
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+        <activity android:name=".manhinhchinh_bottom"
+            android:exported="true"
+            >
+=======
             android:exported="true">
+>>>>>>> 5708aa47eb2f398b702a7e5951b23918d3babb69
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+=======
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+>>>>>>> 5708aa47eb2f398b702a7e5951b23918d3babb69
     </application>
 
 </manifest>
