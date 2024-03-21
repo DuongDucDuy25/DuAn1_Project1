@@ -4,19 +4,24 @@ public class User {
     private int maAdmin;
     private String name;
     private String matkhau;
-    private int round;
+    private int role;
 
-    public User(int maAdmin, String name, String matkhau, int round) {
+    public User(int maAdmin, String name, String matkhau, int role) {
         this.maAdmin = maAdmin;
         this.name = name;
         this.matkhau = matkhau;
-        this.round = round;
+        this.role = role;
     }
 
-    public User(String name, String matkhau, int round) {
+    public User(String name, String matkhau, int role) {
         this.name = name;
         this.matkhau = matkhau;
-        this.round = round;
+        this.role = role;
+    }
+
+    public User(String name, String matkhau) {
+        this.name = name;
+        this.matkhau = matkhau;
     }
 
     public User() {
@@ -46,11 +51,12 @@ public class User {
         this.matkhau = matkhau;
     }
 
-    public int getRound() {
-        return round;
+    public int getRole() {
+        return role;
     }
 
-    public void setRound(int round) {
-        this.round = round;
+    public void setRole(int role) {
+        this.role = role;
     }
 }
+

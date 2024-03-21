@@ -47,10 +47,9 @@ public class RegisterActivity extends AppCompatActivity {
         String username = edUserRegister.getText().toString().trim();
         String password = edPassRegister.getText().toString().trim();
         String rePassword = edRePassRegister.getText().toString().trim();
-        String name = edName.getText().toString().trim();
-        String role = spinnerUserRole.getSelectedItem().toString().trim();
+        int role = spinnerUserRole.getSelectedItemPosition(); // Lấy vị trí được chọn trong spinner
 
-        if (username.isEmpty() || password.isEmpty() || rePassword.isEmpty() || name.isEmpty()) {
+        if (username.isEmpty() || password.isEmpty() || rePassword.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -60,31 +59,32 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        // Create a new User object
-        User user = new User();
-        user.setMaAdmin(0); // Set the ID as 0 or handle it according to your logic
-        user.setName(name);
-        user.setMatkhau(password);
-        user.setRound(0); // Set the round as 0 or handle it according to your logic
+        // Kiểm tra xem tên người dùng đã tồn tại chưa
+        int result = userDao.checkLogin(username, password);
 
-        // Insert the user into the database
-        long result = userDao.insert(user);
+        if (result == -1) {
+            // Tên người dùng chưa tồn tại, tiến hành đăng ký
+            User user = new User(username, password, role);
+            long insertResult = userDao.insert(user);
 
-        if (result != -1) {
-            // Lưu thông tin người dùng vào SharedPreferences
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("username", username);
-            editor.putString("password", password);
-            editor.putString("name", name);
-            editor.putString("role", role);
-            editor.apply();
-
-            Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
-            finish(); // Finish the activity or navigate to the login screen
+            if (insertResult != -1) {
+                // Đăng ký thành công
+                Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
+                // Tiến hành đăng nhập ngay sau khi đăng ký
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                intent.putExtra("username", username);
+                intent.putExtra("password", password);
+                startActivity(intent);
+                finish();
+            } else {
+                // Đăng ký thất bại
+                Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+            // Tên người dùng đã tồn tại
+            Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 }

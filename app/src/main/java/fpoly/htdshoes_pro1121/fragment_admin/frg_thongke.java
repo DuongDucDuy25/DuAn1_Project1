@@ -1,4 +1,4 @@
-package fpoly.htdshoes_pro1121.fragment;
+package fpoly.htdshoes_pro1121.fragment_admin;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,14 +9,14 @@ import androidx.fragment.app.Fragment;
 
 import fpoly.htdshoes_pro1121.R;
 
-
-public class frg_taikhoan extends Fragment {
-
+public class frg_thongke extends Fragment {
 
 
-    public frg_taikhoan() {
+
+    public frg_thongke() {
         // Required empty public constructor
     }
+
 
 
 
@@ -24,6 +24,6 @@ public class frg_taikhoan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frg_taikhoan, container, false);
+        return inflater.inflate(R.layout.fragment_frg_thongke, container, false);
     }
 }

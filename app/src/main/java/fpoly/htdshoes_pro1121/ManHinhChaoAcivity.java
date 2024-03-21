@@ -17,7 +17,7 @@ public class ManHinhChaoAcivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ManHinhChaoAcivity.this, RegisterActivity.class));
+                startActivity(new Intent(ManHinhChaoAcivity.this, LoginActivity.class));
             }
         });
     }

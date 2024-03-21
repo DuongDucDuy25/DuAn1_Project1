@@ -14,54 +14,42 @@ import fpoly.htdshoes_pro1121.Model.User;
 
 public class UserDao {
     private SQLiteDatabase db;
-    public UserDao(Context context){
+
+    public UserDao(Context context) {
         DBHelper dbHelper = new DBHelper(context);
         db = dbHelper.getWritableDatabase();
     }
 
-    public long insert(User user){
-        // Kiểm tra xem maAdmin đã tồn tại chưa
-        if (getID(String.valueOf(user.getMaAdmin())) != null) {
-            // Nếu đã tồn tại, trả về -1 hoặc thực hiện cập nhật thông tin cho maAdmin đã tồn tại
-            // return -1; // Bạn có thể trả về -1 để biểu thị rằng có lỗi xảy ra hoặc thực hiện cập nhật thông tin ở đây
-            return updatePass(user); // Ví dụ: Thực hiện cập nhật thông tin cho maAdmin đã tồn tại
+    public long insert(User user) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("hoTen", user.getName());
+        contentValues.put("matKhau", user.getMatkhau());
+        contentValues.put("round", user.getRole());
+        return db.insert("Admin", null, contentValues);
+    }
+
+    public long updatePass(User user) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("hoTen", user.getName());
+        contentValues.put("matKhau", user.getMatkhau());
+        contentValues.put("round", user.getRole());
+        return db.update("Admin", contentValues, "maAdmin=?", new String[]{String.valueOf(user.getMaAdmin())});
+    }
+
+    public User getUser(String username, String password) {
+        String sql = "SELECT * FROM Admin WHERE hoTen = ? AND matKhau = ?";
+        List<User> list = getData(sql, username, password);
+        if (list.size() > 0) {
+            return list.get(0);
         }
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("maAdmin",user.getMaAdmin());
-        contentValues.put("hoTen",user.getName());
-        contentValues.put("matKhau",user.getMatkhau());
-        contentValues.put("round",user.getRound());
-        return db.insert("Admin",null,contentValues);
-    }
-
-    public long updatePass(User user){
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("hoTen",user.getName());
-        contentValues.put("matKhau",user.getMatkhau());
-        contentValues.put("round",user.getRound());
-        return db.update("Admin",contentValues,"maAdmin=?",new String[]{String.valueOf(user.getMaAdmin())});
-    }
-
-    public List<User> getAll(){
-        String sql = "SELECT * FROM Admin";
-        return getData(sql);
-    }
-
-    public User getID(String id){
-        String sql = "SELECT * FROM Admin WHERE maAdmin = ?";
-        List<User> list = getData(sql,id);
-        return list.get(0);
+        return null;
     }
 
     // check login
-    public int checkLogin(String id , String password){
-        String sql = "SELECT * FROM Admin WHERE maAdmin = ? AND matKhau = ?";
-        List<User> list = getData(sql,id,password);
-        if (list.size()==0){
-            return -1;
-        }
-        return 1;
+    // check login
+    public int checkLogin(String username, String password) {
+        User user = getUser(username, password);
+        return user != null ? user.getRole() : -1; // Trả về vai trò của người dùng
     }
 
     @SuppressLint("Range")
@@ -70,15 +58,15 @@ public class UserDao {
         Cursor cursor = db.rawQuery(sql, selectionArgs);
         while (cursor.moveToNext()) {
             User user = new User();
-            user.setMaAdmin(Integer.parseInt(cursor.getString(cursor.getColumnIndex("maAdmin"))));
+            user.setMaAdmin(cursor.getInt(cursor.getColumnIndex("maAdmin")));
             user.setName(cursor.getString(cursor.getColumnIndex("hoTen")));
             user.setMatkhau(cursor.getString(cursor.getColumnIndex("matKhau")));
-            user.setRound(Integer.parseInt(cursor.getString(cursor.getColumnIndex("round"))));
+            user.setRole(cursor.getInt(cursor.getColumnIndex("round")));
 
             // Thêm user vào danh sách
             list.add(user);
         }
+        cursor.close(); // Đóng con trỏ sau khi sử dụng xong
         return list;
     }
-
 }
