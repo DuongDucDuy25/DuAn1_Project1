@@ -11,11 +11,11 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import fpoly.htdshoes_pro1121.fragment.frg_donhang;
-import fpoly.htdshoes_pro1121.fragment.frg_sanpham;
-import fpoly.htdshoes_pro1121.fragment.frg_taikhoan;
-import fpoly.htdshoes_pro1121.fragment.frg_thongke;
-import fpoly.htdshoes_pro1121.fragment.frg_tongquan_user;
+import fpoly.htdshoes_pro1121.fragment_admin.frg_donhang;
+import fpoly.htdshoes_pro1121.fragment_admin.frg_sanpham;
+import fpoly.htdshoes_pro1121.fragment_admin.frg_taikhoan;
+import fpoly.htdshoes_pro1121.fragment_admin.frg_thongke;
+import fpoly.htdshoes_pro1121.fragment_user.frg_tongquan_user;
 
 public class manhinhchinh_user extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;

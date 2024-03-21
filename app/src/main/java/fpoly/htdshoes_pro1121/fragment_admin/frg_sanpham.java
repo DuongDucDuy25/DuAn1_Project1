@@ -1,6 +1,5 @@
-package fpoly.htdshoes_pro1121.fragment;
+package fpoly.htdshoes_pro1121.fragment_admin;
 
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.graphics.Color;
@@ -11,28 +10,20 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import fpoly.htdshoes_pro1121.Adapter.SanPhamAdminAdapter;
 import fpoly.htdshoes_pro1121.Dao.SanPhamDao;

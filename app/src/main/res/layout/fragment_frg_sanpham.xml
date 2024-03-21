@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.frg_sanpham"
+    tools:context=".fragment_admin.frg_sanpham"
     android:orientation="vertical">
 
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-<<<<<<< HEAD
+
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
@@ -38,10 +38,7 @@
                 android:gravity="center"
                 />
         </LinearLayout>
-=======
-        android:layout_height="match_parent"
-         />
->>>>>>> 5708aa47eb2f398b702a7e5951b23918d3babb69
+
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
