@@ -11,14 +11,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import fpoly.htdshoes_pro1121.Dao.UserDao;
+import fpoly.htdshoes_pro1121.Dao.TaiKhoanDao;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edUsername, edPassword;
     private TextView tvDangKy;
     private Button btnLogin;
 
-    private UserDao userDao;
+    private TaiKhoanDao taiKhoanDao;
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        userDao = new UserDao(this);
+        taiKhoanDao = new TaiKhoanDao(this);
         sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
 
         edUsername = findViewById(R.id.edUsername);
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String username, String password) {
-        int result = userDao.checkLogin(username, password);
+        int result = taiKhoanDao.checkLogin(username, password);
 
         if (result != -1) {
             // Lưu thông tin người dùng vào SharedPreferences

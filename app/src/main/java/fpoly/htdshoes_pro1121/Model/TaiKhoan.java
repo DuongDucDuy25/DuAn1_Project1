@@ -1,30 +1,30 @@
 package fpoly.htdshoes_pro1121.Model;
 
-public class User {
+public class TaiKhoan {
     private int maAdmin;
     private String name;
     private String matkhau;
     private int role;
 
-    public User(int maAdmin, String name, String matkhau, int role) {
+    public TaiKhoan(int maAdmin, String name, String matkhau, int role) {
         this.maAdmin = maAdmin;
         this.name = name;
         this.matkhau = matkhau;
         this.role = role;
     }
 
-    public User(String name, String matkhau, int role) {
+    public TaiKhoan(String name, String matkhau, int role) {
         this.name = name;
         this.matkhau = matkhau;
         this.role = role;
     }
 
-    public User(String name, String matkhau) {
+    public TaiKhoan(String name, String matkhau) {
         this.name = name;
         this.matkhau = matkhau;
     }
 
-    public User() {
+    public TaiKhoan() {
     }
 
     public int getMaAdmin() {

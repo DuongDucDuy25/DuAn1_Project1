@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import fpoly.htdshoes_pro1121.Adapter.SanPhamAdminAdapter;
+import fpoly.htdshoes_pro1121.AdapterAdmin.SanPhamAdminAdapter;
 import fpoly.htdshoes_pro1121.Dao.SanPhamDao;
 import fpoly.htdshoes_pro1121.Model.SanPham;
 import fpoly.htdshoes_pro1121.R;

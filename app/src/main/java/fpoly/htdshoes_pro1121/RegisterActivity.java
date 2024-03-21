@@ -11,21 +11,21 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import fpoly.htdshoes_pro1121.Dao.UserDao;
-import fpoly.htdshoes_pro1121.Model.User;
+import fpoly.htdshoes_pro1121.Dao.TaiKhoanDao;
+import fpoly.htdshoes_pro1121.Model.TaiKhoan;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText edUserRegister, edPassRegister, edRePassRegister, edName;
     private Spinner spinnerUserRole;
     private Button btnRegister;
 
-    private UserDao userDao;
+    private TaiKhoanDao taiKhoanDao;
     private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        userDao = new UserDao(this);
+        taiKhoanDao = new TaiKhoanDao(this);
         sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
 
         edUserRegister = findViewById(R.id.edUserRegister);
@@ -60,12 +60,12 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         // Kiểm tra xem tên người dùng đã tồn tại chưa
-        int result = userDao.checkLogin(username, password);
+        int result = taiKhoanDao.checkLogin(username, password);
 
         if (result == -1) {
             // Tên người dùng chưa tồn tại, tiến hành đăng ký
-            User user = new User(username, password, role);
-            long insertResult = userDao.insert(user);
+            TaiKhoan taiKhoan = new TaiKhoan(username, password, role);
+            long insertResult = taiKhoanDao.insert(taiKhoan);
 
             if (insertResult != -1) {
                 // Đăng ký thành công

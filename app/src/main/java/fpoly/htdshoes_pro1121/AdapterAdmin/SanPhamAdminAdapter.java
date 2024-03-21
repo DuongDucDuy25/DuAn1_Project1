@@ -1,4 +1,4 @@
-package fpoly.htdshoes_pro1121.Adapter;
+package fpoly.htdshoes_pro1121.AdapterAdmin;
 
 import android.app.Activity;
 import android.content.Context;

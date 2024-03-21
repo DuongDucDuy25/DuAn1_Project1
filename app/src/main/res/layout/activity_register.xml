@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/user"
+        android:src="@drawable/taikhoan"
         android:layout_marginTop="-70dp"
         />
 
