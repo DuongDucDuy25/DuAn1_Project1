@@ -1,4 +1,4 @@
-package fpoly.htdshoes_pro1121.fragment;
+package fpoly.htdshoes_pro1121.fragment_admin;
 
 import android.os.Bundle;
 

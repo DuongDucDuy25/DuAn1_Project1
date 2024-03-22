@@ -1,4 +1,4 @@
-package fpoly.htdshoes_pro1121.fragment;
+package fpoly.htdshoes_pro1121.fragment_admin;
 
 import android.os.Bundle;
 
@@ -10,12 +10,13 @@ import android.view.ViewGroup;
 
 import fpoly.htdshoes_pro1121.R;
 
-public class TraHangFragment extends Fragment {
+
+public class HoanThanhDonFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tra_hang, container, false);
+        return inflater.inflate(R.layout.fragment_hoan_thanh_don, container, false);
     }
 }
