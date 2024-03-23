@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import fpoly.htdshoes_pro1121.Database.DBHelper;
@@ -11,6 +13,7 @@ import fpoly.htdshoes_pro1121.Model.KhachHang;
 
 public class KhachHangDao {
     private DBHelper dbHelper;
+    private SQLiteDatabase database;
 
     public KhachHangDao(Context context) {
         dbHelper = new DBHelper(context);
@@ -29,22 +32,24 @@ public class KhachHangDao {
         return result;
     }
     public List<KhachHang> getAllKhachHang() {
-        List<KhachHang> khachHangList = new ArrayList<>();
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM KhachHang", null);
-        if (cursor.moveToFirst()) {
-            do {
-                KhachHang khachHang = new KhachHang();
-                khachHang.setMaKH(cursor.getInt(cursor.getColumnIndex("maKH")));
-                khachHang.setHoTen(cursor.getString(cursor.getColumnIndex("hoTen")));
-                khachHang.setDiaChi(cursor.getString(cursor.getColumnIndex("diachi")));
-                khachHang.setSdt(cursor.getString(cursor.getColumnIndex("sdt")));
-                khachHangList.add(khachHang);
-            } while (cursor.moveToNext());
+        ArrayList<KhachHang> list = new ArrayList<>();
+        database = dbHelper.getReadableDatabase();
+        try {
+            Cursor cursor = database.rawQuery("SELECT * FROM KhachHang", null);
+            if (cursor.getCount()>0){
+                cursor.moveToFirst();
+                do{
+                    list.add(new KhachHang(cursor.getInt(0),
+                            cursor.getString(1),
+                            cursor.getString(2),
+                            cursor.getString(3)));
+                }while (cursor.moveToNext());
+
+            }
+        }catch (Exception e){
+            Log.e("ERROR",e.getMessage());
         }
-        cursor.close();
-        db.close();
-        return khachHangList;
+        return list;
     }
 
     public int updateKhachHang(KhachHang khachHang) {

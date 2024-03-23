@@ -16,12 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import fpoly.htdshoes_pro1121.Dao.KhachHangDao;
-import fpoly.htdshoes_pro1121.Dao.SanPhamDao;
 import fpoly.htdshoes_pro1121.Model.KhachHang;
-import fpoly.htdshoes_pro1121.Model.SanPham;
 import fpoly.htdshoes_pro1121.R;
 
-public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.ViewHolder> implements Filterable {
+public class KhachHangAdminAdapter extends RecyclerView.Adapter<KhachHangAdminAdapter.ViewHolder> implements Filterable {
     private Context context;
     private ArrayList<KhachHang> list;
     private ArrayList<KhachHang> listKhachHang;
@@ -33,12 +31,12 @@ public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.View
 
     @NonNull
     @Override
-    public KhachHangAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_sanpham,parent,false);
-        return new KhachHangAdapter.ViewHolder(view);
+        View view = inflater.inflate(R.layout.item_khachhang,parent,false);
+        return new ViewHolder(view);
     }
-    public KhachHangAdapter(Context context, ArrayList<KhachHang> list, KhachHangDao dao) {
+    public KhachHangAdminAdapter(Context context, ArrayList<KhachHang> list, KhachHangDao dao) {
         this.context = context;
         this.listKhachHang = new ArrayList<>(list);
         this.list = list;
@@ -47,9 +45,9 @@ public class KhachHangAdapter extends RecyclerView.Adapter<KhachHangAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull KhachHangAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvMaKH.setText("Mã :" + String.valueOf(list.get(position).getMaKH()));
-        holder.tvTenKH.setText("Tên :" +list.get(position).getTenKH());
+        holder.tvTenKH.setText("Tên :" +list.get(position).getHoTen());
         holder.tvDiaChi.setText("Địa Chỉ :" +list.get(position).getDiaChi());
         holder.tvSDT.setText("SDT :" +list.get(position).getSdt());
 
