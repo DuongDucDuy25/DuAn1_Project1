@@ -62,10 +62,13 @@ public class KhachHangDao {
                 "maKH = ?", new String[]{String.valueOf(khachHang.getMaKH())});
     }
 
-    public void deleteKhachHang(int maKH) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete("KhachHang", "maKH = ?", new String[]{String.valueOf(maKH)});
-        db.close();
+    public boolean deleteKhachHang(int maKH) {
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        int check = sqLiteDatabase.delete("KhachHang","maKH = ?", new String[]{String.valueOf(maKH)});
+        if (check<=0){
+            return false;
+        }
+        return true;
     }
 }
 
