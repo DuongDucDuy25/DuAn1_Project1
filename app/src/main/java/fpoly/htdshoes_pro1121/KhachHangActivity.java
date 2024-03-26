@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -42,5 +44,85 @@ public class KhachHangActivity extends AppCompatActivity {
         KhachHangAdminAdapter adapter = new KhachHangAdminAdapter(this, list,dao);
         rcKhachHang.setAdapter(adapter);
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_khachhangadmin, menu);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        MenuItem searchMenuItem = menu.findItem(R.id.action_search);
+        searchView = (androidx.appcompat.widget.SearchView) searchMenuItem.getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    private void showDiaLogAdd() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.dialog_add_khachhangadmin, null);
+        builder.setView(view);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.setCancelable(false);
+        alertDialog.show();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        EditText edTenKhachHang = view.findViewById(R.id.edNameKhachHang);
+        EditText edDiaChi = view.findViewById(R.id.edDiaChi);
+        EditText edSDT = view.findViewById(R.id.edSDT);
+        Button btnAdd = view.findViewById(R.id.btnAddKhachHang);
+        Button btnCancel = view.findViewById(R.id.btnCancelKhachHang);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ten = edTenKhachHang.getText().toString();
+                String diachi = edDiaChi.getText().toString();
+                String sdt = edSDT.getText().toString();
+
+                if (ten.length() == 0 || diachi.length() == 0 || sdt.length() == 0 ) {
+                    Toast.makeText(KhachHangActivity.this, "Nhập đầy đủ thông tin !", Toast.LENGTH_SHORT).show();
+                } else {
+                    KhachHang khachHang = new KhachHang(ten, diachi, sdt);
+                    long check = dao.insertKhachHang(khachHang);
+                    if (check !=-1) {
+                        Toast.makeText(KhachHangActivity.this, "Thêm Thành Công !", Toast.LENGTH_SHORT).show();
+                        loadData();
+                        alertDialog.dismiss();
+                    } else {
+                        Toast.makeText(KhachHangActivity.this, "Thêm Thất Bại", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
     }
 }

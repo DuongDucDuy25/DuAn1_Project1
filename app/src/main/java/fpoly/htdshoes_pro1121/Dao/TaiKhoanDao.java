@@ -69,4 +69,15 @@ public class TaiKhoanDao {
         cursor.close(); // Đóng con trỏ sau khi sử dụng xong
         return list;
     }
+    @SuppressLint("Range")
+    public List<String> getNameData(String sql, String... selectionArgs) {
+        List<String> nameList = new ArrayList<>();
+        Cursor cursor = db.rawQuery(sql, selectionArgs);
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(cursor.getColumnIndex("hoTen"));
+            nameList.add(name);
+        }
+        cursor.close();
+        return nameList;
+    }
 }
