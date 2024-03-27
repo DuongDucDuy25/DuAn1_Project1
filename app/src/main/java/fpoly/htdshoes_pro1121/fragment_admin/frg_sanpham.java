@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -38,6 +40,9 @@ public class frg_sanpham extends Fragment {
     private androidx.appcompat.widget.SearchView searchView;
     private LinearLayout btnThemSP, btnSuaSp;
     private ArrayList<SanPham> list;
+    private ArrayList<SanPham> temstlist;
+    private EditText edSearch;
+
 
 
     public frg_sanpham() {
@@ -51,10 +56,42 @@ public class frg_sanpham extends Fragment {
 
         rcSanPham = view.findViewById(R.id.rcSanPham);
         btnThemSP = view.findViewById(R.id.btnThemSanPham);
-
-
+        edSearch = view.findViewById(R.id.edSearch);
         dao = new SanPhamDao(getContext());
-        loadData();
+         list = dao.getlistdata();
+         temstlist = dao.getlistdata();
+
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        rcSanPham.setLayoutManager(manager);
+        SanPhamAdminAdapter adapter = new SanPhamAdminAdapter(getContext(), list, dao);
+        rcSanPham.setAdapter(adapter);
+
+
+
+        edSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                list.clear();
+                for (SanPham pm:temstlist) {
+                    if(String.valueOf(pm.getTenSanPham()).
+                            contains(charSequence.toString())){
+                        list.add(pm);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         btnThemSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,11 +103,6 @@ public class frg_sanpham extends Fragment {
     }
 
     private void loadData() {
-        ArrayList<SanPham> list = dao.getlistdata();
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        rcSanPham.setLayoutManager(manager);
-        SanPhamAdminAdapter adapter = new SanPhamAdminAdapter(getContext(), list, dao);
-        rcSanPham.setAdapter(adapter);
 
     }
 

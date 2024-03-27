@@ -24,7 +24,7 @@ public class TaiKhoanDao {
         ContentValues contentValues = new ContentValues();
         contentValues.put("hoTen", taiKhoan.getName());
         contentValues.put("matKhau", taiKhoan.getMatkhau());
-        contentValues.put("round", taiKhoan.getRole());
+        contentValues.put("role", taiKhoan.getRole());
         return db.insert("Admin", null, contentValues);
     }
 
@@ -32,7 +32,7 @@ public class TaiKhoanDao {
         ContentValues contentValues = new ContentValues();
         contentValues.put("hoTen", taiKhoan.getName());
         contentValues.put("matKhau", taiKhoan.getMatkhau());
-        contentValues.put("round", taiKhoan.getRole());
+        contentValues.put("role", taiKhoan.getRole());
         return db.update("Admin", contentValues, "maAdmin=?", new String[]{String.valueOf(taiKhoan.getMaAdmin())});
     }
 
@@ -61,7 +61,7 @@ public class TaiKhoanDao {
             taiKhoan.setMaAdmin(cursor.getInt(cursor.getColumnIndex("maAdmin")));
             taiKhoan.setName(cursor.getString(cursor.getColumnIndex("hoTen")));
             taiKhoan.setMatkhau(cursor.getString(cursor.getColumnIndex("matKhau")));
-            taiKhoan.setRole(cursor.getInt(cursor.getColumnIndex("round")));
+            taiKhoan.setRole(cursor.getInt(cursor.getColumnIndex("role")));
 
             // Thêm user vào danh sách
             list.add(taiKhoan);

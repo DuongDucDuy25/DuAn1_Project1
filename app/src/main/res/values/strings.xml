@@ -9,6 +9,15 @@
     =======
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    >>>>>>> 5708aa47eb2f398b702a7e5951b23918d3babb69
+    <string-array name="shoe_categories">
+
+        <item>Nike</item>
+        <item>Vans</item>
+        <item>Converse</item>
+        <item>Adidas</item>
+        <item>MLB</item>
+        <!-- Add more categories if needed -->
+    </string-array>
+
 
 </resources>
