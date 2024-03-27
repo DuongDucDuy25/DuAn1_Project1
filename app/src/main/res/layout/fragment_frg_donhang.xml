@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_admin.frg_donhang">
+    tools:context=".fragment_admin.frg_donhang"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <com.google.android.material.tabs.TabLayout
@@ -12,10 +13,14 @@
         android:id="@+id/TabLayout"
         android:layout_marginTop="10dp"
         />
+
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:id="@+id/viewpager"
+        android:layout_weight="1"
         />
 
-</FrameLayout>
+
+
+</LinearLayout>

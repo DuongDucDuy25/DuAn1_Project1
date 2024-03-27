@@ -13,6 +13,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -151,4 +153,7 @@ public class KhachHangActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

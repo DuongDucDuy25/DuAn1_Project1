@@ -72,6 +72,7 @@
                />
        </LinearLayout>
        <LinearLayout
+           android:id="@+id/btnThemSanPham"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
            android:layout_weight="1"
@@ -104,6 +105,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="20dp">
         <LinearLayout
+            android:id="@+id/BestSeller"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -112,10 +114,10 @@
             android:layout_margin="10dp"
             >
             <ImageView
-                android:layout_width="70dp"
+                android:layout_width="65dp"
                 android:layout_height="60dp"
                 android:padding="15dp"
-                android:src="@drawable/cup"
+                android:src="@drawable/cup1"
                 android:background="@drawable/item_tongquan3"
                 />
             <TextView
@@ -142,11 +144,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thông Báo"
+                android:text="Tạo đơn hàng"
                 android:textSize="15dp"
                 android:gravity="center"
                 />
         </LinearLayout>
+
 
     </LinearLayout>
 
