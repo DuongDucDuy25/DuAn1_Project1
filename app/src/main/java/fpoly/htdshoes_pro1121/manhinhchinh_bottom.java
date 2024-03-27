@@ -1,6 +1,7 @@
 package fpoly.htdshoes_pro1121;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -28,8 +29,8 @@ public class manhinhchinh_bottom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manhinhchinh_bottom);
 
-        bottomNavigationView = findViewById(R.id.bottomnav);
         drawerLayout = findViewById(R.id.drawer_layout);
+        bottomNavigationView = findViewById(R.id.bottomnav);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -49,39 +50,16 @@ public class manhinhchinh_bottom extends AppCompatActivity {
                 }
 
                 replaceFrg(fragment);
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
 
         setDefaultFragment();
 
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                FragmentManager manager = getSupportFragmentManager();
-                setTitle(item.getTitle());
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_home_24);
 
-                if (item.getItemId() == R.id.tongquan) {
-                    frg_tongquan phieuMuonFragment = new frg_tongquan();
-                    replaceFrg(phieuMuonFragment);
-                } else if (item.getItemId() == R.id.thongke) {
-                    frg_thongke loaiSachFragment = new frg_thongke();
-                    replaceFrg(loaiSachFragment);
-                } else if (item.getItemId() == R.id.donHang) {
-                    frg_donhang sachFragment = new frg_donhang();
-                    replaceFrg(sachFragment);
-                } else if (item.getItemId() == R.id.sanPham) {
-                    frg_sanpham thanhVienFragment = new frg_sanpham();
-                    replaceFrg(thanhVienFragment);
-                } else if (item.getItemId() == R.id.taikhoan) {
-                    frg_taikhoan frgtaikhoan = new frg_taikhoan();
-                    replaceFrg(frgtaikhoan);
-                }
-
-                drawerLayout.closeDrawers();
-                return true;
-            }
-        });
     }
 
     private void setDefaultFragment() {
@@ -96,8 +74,7 @@ public class manhinhchinh_bottom extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
+        if (item.getItemId() == android.R.id.home) {
             drawerLayout.openDrawer(GravityCompat.START);
             return true;
         }

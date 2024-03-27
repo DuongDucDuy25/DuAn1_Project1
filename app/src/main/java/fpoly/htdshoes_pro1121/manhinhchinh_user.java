@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import fpoly.htdshoes_pro1121.fragment_user.KhachHangFragment;
+import fpoly.htdshoes_pro1121.fragment_user.frg_sanphamuser;
 import fpoly.htdshoes_pro1121.fragment_user.frg_tongquan_user;
 
 public class manhinhchinh_user extends AppCompatActivity {
@@ -33,6 +34,8 @@ public class manhinhchinh_user extends AppCompatActivity {
             } else if (itemId == R.id.nav_khachhang) {
                 selectedFragment = new KhachHangFragment();
                 // Thêm các trường hợp xử lý cho các mục khác nếu cần
+            } else if (itemId == R.id.nav_sanpham) {
+                selectedFragment = new frg_sanphamuser();
             }
             // Thay thế fragment hiện tại bằng fragment được chọn
             if (selectedFragment != null) {
@@ -46,4 +49,4 @@ public class manhinhchinh_user extends AppCompatActivity {
         // Mặc định chọn fragment tổng quan khi mở activity
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_user, new frg_tongquan_user()).commit();
     }
-}
+    }

@@ -16,15 +16,11 @@
         <activity
             android:name=".KhachHangActivity"
             android:exported="false" />
-        <activity
-            android:name=".AdapterUser.AdapterUser"
-            android:exported="false" />
+
         <activity
             android:name=".manhinhchinh_user"
             android:exported="false" />
-        <activity
-            android:name=".UserActivity"
-            android:exported="false" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="false" />

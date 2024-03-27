@@ -92,6 +92,28 @@ public class DBHelper extends SQLiteOpenHelper {
                 "(10,'30/03/2023',3,982374,5)");
         db.execSQL("INSERT INTO SanPham VALUES(1,'Nike Air Force 1',1,1,2000,2),(2,'Mid Wolk Grey',2,2,3000,2),(3,'Mid Iron',3,3,9000,3)");
 
+        db.execSQL("INSERT INTO DonHang VALUES(1,'08/03/2023',3,101923),(2,'09/03/2023',12,12342),(3,'10/03/2023',2,923848)");
+        db.execSQL("INSERT INTO SanPham VALUES(1,'Nike Air Force 1',1,1,2000,5)," +
+                "(2,'Nike Air Max 90 - Red Stardust',1,1,2210,6)," +
+                "(3,'Nike Air Max 1 SC - Clear Jade',1,1,2465,5)," +
+                "(4,'Nike Dunk Low Retro - Team Gold',1,1,2930,5)," +
+                        "(5,'VANS OLD SKOOL CLASSIC ',2,2,2930,5),"+
+                        "(6,'VANS CHECKERBOARD SLIP-ON CLASSIC BLACK',2,2,2930,5),"+
+                        "(7,'VANS SLIP-ON CLASSIC TRUE WHITE',2,2,2930,5),"+
+                        "(8,'VANS AUTHENTIC CLASSIC BLACK',2,2,2930,5),"+
+                        "(9,'Giày Converse Chuck 70 Seasonal Color Canvas',3,3,2930,5),"+
+                        "(10,'Giày mules đế bệt unisex Chuck Taylor All Star 1970s',3,3,2930,5),"+
+                        "(11,'Giày sneakers nữ cổ thấp Chuck Taylor All Star Lift',3,3,2930,5),"+
+                        "(12,'Giày sneakers unisex cổ thấp Chuck Taylor All Star Seasonal',3,3,2930,5),"+
+                        "(13,'Giày Adidas Grand Court Alpha Shoes',4,4,2930,5),"+
+                        "(14,'Giày Adidas Forum Low Shoes',4,4,2930,5),"+
+                        "(15,'Giày Adidas Forum 84 Low Shoes',4,4,3000,5),"+
+                        "(16,'Giày Adidas Stan Smith Shoes ',4,4,2930,5),"+
+                        "(17,'MLB - Giày sneakers unisex cổ thấp Chunky Liner Mid Saffiano',5,5,2930,5),"+
+                        "(18,'MLB - Giày sneakers unisex cổ thấp Chunky Liner',5,5,2930,5),"+
+                        "(19,'MLB - Giày sneakers unisex cổ thấp Bigball Chunky Varsity',5,5,2930,5),"+
+                        "(20,'MLB - Giày sneakers unisex cổ thấp đế vừa Chunky Liner Hologram',5,5,2930,5)"
+                );
     }
 
     @Override
