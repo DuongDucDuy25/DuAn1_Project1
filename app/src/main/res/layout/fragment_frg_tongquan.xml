@@ -62,8 +62,7 @@
                android:layout_height="60dp"
                android:padding="15dp"
                android:src="@drawable/baseline_groups_2_24"
-               android:background="@drawable/item_tongquan"
-               android:layout_marginBottom="10dp"/>
+               android:background="@drawable/item_tongquan"/>
            <TextView
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -82,7 +81,7 @@
            android:layout_margin="10dp"
            >
            <ImageView
-               android:layout_width="wrap_content"
+               android:layout_width="60dp"
                android:layout_height="60dp"
                android:padding="15dp"
                android:src="@drawable/baseline_add_24"
@@ -124,7 +123,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tạo đơn hàng"
+                android:text="Best Seller"
                 android:textSize="15dp"
                 android:gravity="center"
                 />
@@ -140,28 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:padding="15dp"
-                android:src="@drawable/baseline_library_add_24"
-                android:background="@drawable/item_tongquan"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tạo đơn hàng"
-                android:textSize="15dp"
-                android:gravity="center"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:padding="15dp"
-                android:src="@drawable/baseline_library_add_24"
+                android:src="@drawable/baseline_notifications_24"
                 android:background="@drawable/item_tongquan"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -172,6 +150,16 @@
                 />
         </LinearLayout>
 
+
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcTongQuan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="@drawable/khungden"
+        android:padding="10dp"
+        />
 
 </LinearLayout>

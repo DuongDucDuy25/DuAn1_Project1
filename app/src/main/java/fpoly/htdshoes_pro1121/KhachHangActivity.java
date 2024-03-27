@@ -1,50 +1,78 @@
 package fpoly.htdshoes_pro1121;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.SearchManager;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 import fpoly.htdshoes_pro1121.AdapterAdmin.KhachHangAdminAdapter;
-import fpoly.htdshoes_pro1121.AdapterAdmin.SanPhamAdminAdapter;
 import fpoly.htdshoes_pro1121.Dao.KhachHangDao;
-import fpoly.htdshoes_pro1121.Dao.SanPhamDao;
 import fpoly.htdshoes_pro1121.Model.KhachHang;
 import fpoly.htdshoes_pro1121.Model.SanPham;
 
 public class KhachHangActivity extends AppCompatActivity {
     private RecyclerView rcKhachHang;
     private KhachHangDao dao;
-    private androidx.appcompat.widget.SearchView searchView;
-    private LinearLayout btnThemSP, btnSuaSp;
     private ArrayList<KhachHang> list;
+    private Toolbar mtoolbar;
+    private androidx.appcompat.widget.SearchView searchView;
+    private KhachHangAdminAdapter adapter;
+    private FloatingActionButton floatAddKhachHang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_khach_hang);
-        rcKhachHang = findViewById(R.id.rcKhachHang);
 
+        rcKhachHang = findViewById(R.id.rcKhachHang);
+        mtoolbar = findViewById(R.id.toolbar);
+        floatAddKhachHang = findViewById(R.id.floatAddKhachHang);
+        setSupportActionBar(mtoolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Khách Hàng");
 
         dao = new KhachHangDao(this);
         loadData();
-
+        floatAddKhachHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+           showDiaLogAdd();
+            }
+        });
     }
+
     private void loadData() {
-        ArrayList<KhachHang> list = (ArrayList<KhachHang>) dao.getAllKhachHang();
+        list = (ArrayList<KhachHang>) dao.getAllKhachHang();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         rcKhachHang.setLayoutManager(manager);
-        KhachHangAdminAdapter adapter = new KhachHangAdminAdapter(this, list,dao);
+        adapter = new KhachHangAdminAdapter(this, list, dao);
         rcKhachHang.setAdapter(adapter);
-
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -125,4 +153,7 @@ public class KhachHangActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

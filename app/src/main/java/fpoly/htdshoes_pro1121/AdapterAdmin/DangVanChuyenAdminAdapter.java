@@ -5,8 +5,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,35 +16,28 @@ import fpoly.htdshoes_pro1121.Dao.DonHangDao;
 import fpoly.htdshoes_pro1121.Model.DonHang;
 import fpoly.htdshoes_pro1121.R;
 
-public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHolder> implements Filterable {
-
+public class DangVanChuyenAdminAdapter extends RecyclerView.Adapter<DangVanChuyenAdminAdapter.ViewHolder>{
     private Context context;
     private ArrayList<DonHang> list;
     private ArrayList<DonHang> listDonhang;
     private DonHangDao dao;
 
-    public DonHangAdapter(Context context, ArrayList<DonHang> list, DonHangDao dao) {
+    public DangVanChuyenAdminAdapter(Context context, ArrayList<DonHang> list, DonHangDao dao) {
         this.context = context;
         this.list = list;
         this.listDonhang = new ArrayList<>(list);
         this.dao = dao;
     }
-
-    @Override
-    public Filter getFilter() {
-        return null;
-    }
-
     @NonNull
     @Override
-    public DonHangAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DangVanChuyenAdminAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View view = inflater.inflate(R.layout.item_donhangadmin,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DonHangAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DangVanChuyenAdminAdapter.ViewHolder holder, int position) {
         DonHang donHang = list.get(position);
         int trangThai = donHang.getTrangThai();
 
@@ -55,8 +46,8 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
         holder.tvSoDonHang.setText(String.valueOf(donHang.getSoDonHang()));
         holder.tvDonGia.setText(String.valueOf(donHang.getDonGia()));
 
-        if (trangThai == 1) {
-            holder.tvTrangThai.setText("Chờ Xác Nhận");
+        if (trangThai == 2) {
+            holder.tvTrangThai.setText("Đang Vận Chuyển");
         } else {
             // Xử lý trạng thái khác (nếu cần)
             holder.tvTrangThai.setText(String.valueOf(trangThai));
@@ -67,7 +58,6 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.ViewHold
     public int getItemCount() {
         return list.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvMaDonHang,tvDate,tvSoDonHang,tvDonGia,tvTrangThai;
         public ViewHolder(@NonNull View itemView) {

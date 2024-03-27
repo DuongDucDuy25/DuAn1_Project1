@@ -39,6 +39,24 @@ public class frg_donhang extends Fragment {
         mviewpager.setAdapter(donHangTabLayoutAdapter);
 
         mTablayout.setupWithViewPager(mviewpager);
+
+        mTablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mviewpager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                // Không cần xử lý
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                // Không cần xử lý
+            }
+        });
+
         return view;
     }
 }
