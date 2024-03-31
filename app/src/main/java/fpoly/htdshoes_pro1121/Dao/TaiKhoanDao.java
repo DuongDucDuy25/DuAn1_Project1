@@ -27,6 +27,11 @@ public class TaiKhoanDao {
         contentValues.put("role", taiKhoan.getRole());
         return db.insert("Admin", null, contentValues);
     }
+    public TaiKhoan getID(String id) {
+        String sql = "SELECT * FROM Admin WHERE maAdmin=?";
+        List<TaiKhoan> list = getData(sql, id);
+        return list.get(0);
+    }
 
     public long updatePass(TaiKhoan taiKhoan) {
         ContentValues contentValues = new ContentValues();
@@ -79,5 +84,13 @@ public class TaiKhoanDao {
         }
         cursor.close();
         return nameList;
+    }
+    public boolean checkUsernameExists(String username) {
+        String sql = "SELECT COUNT(*) FROM Admin WHERE hoTen = ?";
+        Cursor cursor = db.rawQuery(sql, new String[]{username});
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+        cursor.close();
+        return count > 0;
     }
 }

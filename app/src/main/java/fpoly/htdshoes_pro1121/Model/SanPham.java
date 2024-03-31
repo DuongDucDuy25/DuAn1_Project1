@@ -10,6 +10,11 @@ public class SanPham {
 
     private int soLuong;
 
+    public SanPham(int maSanPham, String tenSanPham) {
+        this.maSanPham = maSanPham;
+        this.tenSanPham = tenSanPham;
+    }
+
     public SanPham(int maSanPham, String tenSanPham, int maCTSP, int maTL, int giaTien, int soLuong) {
         this.maSanPham = maSanPham;
         this.tenSanPham = tenSanPham;

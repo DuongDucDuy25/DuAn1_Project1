@@ -50,15 +50,39 @@ public class manhinhchinh_bottom extends AppCompatActivity {
                 }
 
                 replaceFrg(fragment);
-                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
 
         setDefaultFragment();
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_home_24);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                FragmentManager manager = getSupportFragmentManager();
+                setTitle(item.getTitle());
+
+                if (item.getItemId() == R.id.tongquan) {
+                    frg_tongquan phieuMuonFragment = new frg_tongquan();
+                    replaceFrg(phieuMuonFragment);
+                } else if (item.getItemId() == R.id.thongke) {
+                    frg_thongke loaiSachFragment = new frg_thongke();
+                    replaceFrg(loaiSachFragment);
+                } else if (item.getItemId() == R.id.donHang) {
+                    frg_donhang sachFragment = new frg_donhang();
+                    replaceFrg(sachFragment);
+                } else if (item.getItemId() == R.id.sanPham) {
+                    frg_sanpham thanhVienFragment = new frg_sanpham();
+                    replaceFrg(thanhVienFragment);
+                } else if (item.getItemId() == R.id.taikhoan) {
+                    frg_taikhoan frgtaikhoan = new frg_taikhoan();
+                    replaceFrg(frgtaikhoan);
+                }
+
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        });
 
     }
 
