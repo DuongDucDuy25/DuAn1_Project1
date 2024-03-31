@@ -25,30 +25,7 @@
        android:orientation="horizontal"
        android:gravity="center"
        android:layout_margin="20dp">
-       <LinearLayout
-           android:id="@+id/TQtaoDonHang"
-           android:layout_width="0dp"
-           android:layout_height="wrap_content"
-           android:layout_weight="1"
-           android:orientation="vertical"
-           android:gravity="center"
-           android:layout_margin="10dp"
-           >
-           <ImageView
-               android:layout_width="wrap_content"
-               android:layout_height="60dp"
-               android:padding="15dp"
-               android:src="@drawable/baseline_library_add_24"
-               android:background="@drawable/item_tongquan"
-               />
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Tạo đơn hàng"
-               android:textSize="15dp"
-               android:gravity="center"
-               />
-       </LinearLayout>
+
        <LinearLayout
            android:id="@+id/btnKhachHang"
            android:layout_width="0dp"
@@ -94,64 +71,54 @@
                android:gravity="center"
                />
        </LinearLayout>
+       <LinearLayout
+           android:id="@+id/BestSeller"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:orientation="vertical"
+           android:gravity="center"
+           android:layout_margin="10dp"
+           >
+           <ImageView
+               android:layout_width="65dp"
+               android:layout_height="60dp"
+               android:padding="15dp"
+               android:src="@drawable/cup1"
+               android:background="@drawable/item_tongquan3"
+               />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Best Seller"
+               android:textSize="15dp"
+               android:gravity="center"
+               />
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:orientation="vertical"
+           android:gravity="center"
+           >
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="60dp"
+               android:padding="15dp"
+               android:src="@drawable/baseline_notifications_24"
+               android:background="@drawable/item_tongquan"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Thông Báo"
+               android:textSize="15dp"
+               android:gravity="center"
+               />
+       </LinearLayout>
 
    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="20dp">
-        <LinearLayout
-            android:id="@+id/BestSeller"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="10dp"
-            >
-            <ImageView
-                android:layout_width="65dp"
-                android:layout_height="60dp"
-                android:padding="15dp"
-                android:src="@drawable/cup1"
-                android:background="@drawable/item_tongquan3"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Best Seller"
-                android:textSize="15dp"
-                android:gravity="center"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:padding="15dp"
-                android:src="@drawable/baseline_notifications_24"
-                android:background="@drawable/item_tongquan"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tạo đơn hàng"
-                android:textSize="15dp"
-                android:gravity="center"
-                />
-        </LinearLayout>
 
-
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcTongQuan"

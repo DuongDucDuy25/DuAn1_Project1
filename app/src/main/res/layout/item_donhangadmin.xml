@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/DonHang">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,6 +40,14 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="14dp"
+                    android:text="Mã DH"/>
+                <TextView
+                    android:id="@+id/tvMaKH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="14dp"
                     android:text="Mã KH"/>
                 <TextView
                     android:id="@+id/tvDate"
@@ -64,6 +73,14 @@
                     android:textStyle="bold"
                     android:text="Đơn Giá"/>
                 <TextView
+                    android:id="@+id/tvMaSanPham"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Mã Sản Phẩm"/>
+                <TextView
                     android:id="@+id/tvTrangThai"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -74,13 +91,6 @@
 
 
             </LinearLayout>
-            <ImageView
-                android:id="@+id/imgDeleteKhachHang"
-                android:layout_width="0dp"
-                android:layout_height="65dp"
-                android:layout_weight="1"
-                android:src="@drawable/delete"
-                />
 
         </LinearLayout>
 

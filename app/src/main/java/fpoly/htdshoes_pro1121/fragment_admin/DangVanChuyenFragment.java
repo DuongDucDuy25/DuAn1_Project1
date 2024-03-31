@@ -15,7 +15,9 @@ import java.util.List;
 import fpoly.htdshoes_pro1121.AdapterAdmin.DangVanChuyenAdminAdapter;
 import fpoly.htdshoes_pro1121.AdapterAdmin.DonHangAdapter;
 import fpoly.htdshoes_pro1121.Dao.DonHangDao;
+import fpoly.htdshoes_pro1121.Dao.SanPhamDao;
 import fpoly.htdshoes_pro1121.Model.DonHang;
+import fpoly.htdshoes_pro1121.Model.SanPham;
 import fpoly.htdshoes_pro1121.R;
 
 
@@ -32,6 +34,8 @@ public class DangVanChuyenFragment extends Fragment {
         rcDangVanChuyen = view.findViewById(R.id.rcDangVanChuyen);
         dao = new DonHangDao(getContext());
         list = new ArrayList<>();
+        ArrayList<SanPham> listSanPham = new SanPhamDao(getContext()).getlistdata(); // Lấy danh sách sản phẩm
+
 
         // Lấy danh sách đơn hàng có trạng thái là 1
         List<DonHang> allDonHang = dao.getlistdata();
@@ -44,6 +48,7 @@ public class DangVanChuyenFragment extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         rcDangVanChuyen.setLayoutManager(manager);
         DangVanChuyenAdminAdapter adapter = new DangVanChuyenAdminAdapter(getContext(), list, dao);
+        adapter.setListSanPham(listSanPham);
         rcDangVanChuyen.setAdapter(adapter);
         return view;
     }

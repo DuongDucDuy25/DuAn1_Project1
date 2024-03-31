@@ -10,7 +10,6 @@ import fpoly.htdshoes_pro1121.fragment_admin.ChoXacNhanFragment;
 import fpoly.htdshoes_pro1121.fragment_admin.DangVanChuyenFragment;
 import fpoly.htdshoes_pro1121.fragment_admin.HoanThanhDonFragment;
 import fpoly.htdshoes_pro1121.fragment_admin.HuyDonHangFragment;
-import fpoly.htdshoes_pro1121.fragment_admin.TraHangFragment;
 
 public class DonHangTabLayoutAdapter extends FragmentStatePagerAdapter {
 
@@ -28,10 +27,8 @@ public class DonHangTabLayoutAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return new DangVanChuyenFragment();
             case 2:
-                return new TraHangFragment();
-            case 3:
                 return new HuyDonHangFragment();
-            case 4:
+            case 3:
                 return new HoanThanhDonFragment();
             default:
                 return new HoanThanhDonFragment();
@@ -40,7 +37,7 @@ public class DonHangTabLayoutAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return 4;
     }
 
     @Nullable
@@ -55,12 +52,9 @@ public class DonHangTabLayoutAdapter extends FragmentStatePagerAdapter {
                 title ="Đang Vận Chuyển";
                 break;
             case 2:
-                title ="Trả Hàng";
-                break;
-            case 3:
                 title ="Hủy Đơn";
                 break;
-            case 4:
+            case 3:
                 title ="Đã Hoàn Thành";
                 break;
         }

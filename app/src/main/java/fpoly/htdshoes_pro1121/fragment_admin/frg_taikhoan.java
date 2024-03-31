@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import fpoly.htdshoes_pro1121.ChangePassActivity;
 import fpoly.htdshoes_pro1121.LoginActivity;
 import fpoly.htdshoes_pro1121.Model.TaiKhoan;
 import fpoly.htdshoes_pro1121.R;
@@ -56,6 +57,12 @@ public class frg_taikhoan extends Fragment {
             @Override
             public void onClick(View v) {
                 showLogoutDialog();
+            }
+        });
+        tvChangePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(requireContext(), ChangePassActivity.class));
             }
         });
 

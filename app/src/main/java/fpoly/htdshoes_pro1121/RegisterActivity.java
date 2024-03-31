@@ -21,10 +21,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     private TaiKhoanDao taiKhoanDao;
     private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
         taiKhoanDao = new TaiKhoanDao(this);
         sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
 
@@ -47,44 +49,37 @@ public class RegisterActivity extends AppCompatActivity {
         String username = edUserRegister.getText().toString().trim();
         String password = edPassRegister.getText().toString().trim();
         String rePassword = edRePassRegister.getText().toString().trim();
-        int role = spinnerUserRole.getSelectedItemPosition(); // Lấy vị trí được chọn trong spinner
+        String name = edName.getText().toString().trim();
+        int role = spinnerUserRole.getSelectedItemPosition();
 
-        if (username.isEmpty() || password.isEmpty() || rePassword.isEmpty()) {
-            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+        if (username.isEmpty() || password.isEmpty() || rePassword.isEmpty() || name.isEmpty()) {
+            Toast.makeText(this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!password.equals(rePassword)) {
-            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Kiểm tra xem tên người dùng đã tồn tại chưa
-        int result = taiKhoanDao.checkLogin(username, password);
+        boolean isUsernameExists = taiKhoanDao.checkUsernameExists(username);
 
-        if (result == -1) {
-            // Tên người dùng chưa tồn tại, tiến hành đăng ký
+        if (!isUsernameExists) {
             TaiKhoan taiKhoan = new TaiKhoan(username, password, role);
             long insertResult = taiKhoanDao.insert(taiKhoan);
 
             if (insertResult != -1) {
-                // Đăng ký thành công
-                Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show();
-                // Tiến hành đăng nhập ngay sau khi đăng ký
+                Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 intent.putExtra("username", username);
                 intent.putExtra("password", password);
                 startActivity(intent);
                 finish();
             } else {
-                // Đăng ký thất bại
-                Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
             }
         } else {
-            // Tên người dùng đã tồn tại
-            Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Tên người dùng đã tồn tại", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fpoly.htdshoes_pro1121.Database.DBHelper;
 import fpoly.htdshoes_pro1121.Model.DonHang;
@@ -27,10 +28,12 @@ public class DonHangDao {
             if (cursor.getCount() > 0) {
                 while (cursor.moveToNext()) {
                     DonHang donHang = new DonHang(cursor.getInt(0),
-                            cursor.getString(1),
-                            cursor.getInt(2),
+                            cursor.getInt(1),
+                            cursor.getString(2),
                             cursor.getInt(3),
-                            cursor.getInt(4));
+                            cursor.getInt(4),
+                            cursor.getInt(5),
+                            cursor.getInt(6));
                     list.add(donHang);
                 }
             }
@@ -54,6 +57,27 @@ public class DonHangDao {
             return true;
         }
     }
+    public List<DonHang> getDonHangBySanPham(int maSanPham) {
+        List<DonHang> donHangList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String query = "SELECT * FROM DonHang WHERE maSanPham = " + maSanPham;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                DonHang donHang = new DonHang();
+                donHang.setMaDH(cursor.getInt(0));
+                donHang.setDate(cursor.getString(1));
+                donHang.setSoDonHang(cursor.getInt(2));
+                donHang.setDonGia(cursor.getInt(3));
+                donHang.setMaSanPham(cursor.getInt(4));
+                donHang.setTrangThai(cursor.getInt(5));
+                donHangList.add(donHang);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return donHangList;
+    }
     public boolean updateDonHang(DonHang donHang){
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -69,6 +93,21 @@ public class DonHangDao {
         }
         return true;
     }
+    public String getTenSanPhamByDonHang(int maDonHang) {
+        String tenSanPham = "";
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String query = "SELECT SanPham.tenSanPham " +
+                "FROM DonHang " +
+                "INNER JOIN SanPham ON DonHang.maSanPham = SanPham.maSanPham " +
+                "WHERE DonHang.maDonHang = " + maDonHang;
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            tenSanPham = cursor.getString(0);
+        }
+        cursor.close();
+        db.close();
+        return tenSanPham;
+    }
     public boolean DeleteDonHang(int maDonHang){
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         int check = sqLiteDatabase.delete("DonHang","maDonHang = ?", new String[]{String.valueOf(maDonHang)});
@@ -77,5 +116,19 @@ public class DonHangDao {
         }
         return true;
     }
+    public int getDoanhthu(String ngaybatdau, String ngayketthuc) {
+        ngaybatdau = ngaybatdau.replace("/","");
+        ngayketthuc = ngayketthuc.replace("/","");
+
+        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        Cursor cursor = database.rawQuery("SELECT SUM(tienthue) FROM DonHang WHERE substr(ngay,7,4)||substr (ngay,4,2)|| substr (ngay,1,2) BETWEEN ? AND ?", new String[]{ngaybatdau, ngayketthuc});
+        int doanhthu = 0;
+        if (cursor.moveToFirst()) {
+            doanhthu = cursor.getInt(0);
+        }
+        cursor.close();
+        return doanhthu;
+    }
+
 
 }
