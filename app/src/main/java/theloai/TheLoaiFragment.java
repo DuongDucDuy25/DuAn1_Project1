@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.orderapp.ChiTietTheLoaiActivity;
-import com.example.orderapp.databinding.FragmentTheLoaiBinding;
+import fpoly.htdshoes_pro1121.d.ChiTietTheLoaiActivity;
+import fpoly.htdshoes_pro1121.databinding.FragmentTheLoaiBinding;
 
 
 public class TheLoaiFragment extends Fragment {

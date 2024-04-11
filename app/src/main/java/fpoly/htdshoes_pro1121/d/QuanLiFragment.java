@@ -10,10 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.orderapp.databinding.FragmentQuanLiBinding;
-import com.example.orderapp.dsnguoidung.DsNguoiDungActivity;
-import com.example.orderapp.quanlitheloai.QuanLiTheLoaiActivity;
-import com.example.orderapp.thongke.ThongKeDoanhThuActivity;
+import dsnguoidung.DsNguoiDungActivity;
+import fpoly.htdshoes_pro1121.databinding.FragmentQuanLiBinding;
+import quanlitheloai.QuanLiTheLoaiActivity;
+import thongke.ThongKeDoanhThuActivity;
+
 
 public class QuanLiFragment extends Fragment {
 

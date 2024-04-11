@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".home.HomeFragment">
+    tools:context=".HomeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -53,6 +53,21 @@
             android:queryHint="Search" />
 
     </RelativeLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/circleIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_gravity="center_horizontal"
+        app:ci_drawable="@drawable/bg_indicator" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

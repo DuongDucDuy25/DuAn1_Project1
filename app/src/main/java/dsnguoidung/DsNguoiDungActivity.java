@@ -4,12 +4,14 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.ActivityDsNguoiDungBinding;
-import com.example.orderapp.model.UserData;
+
 
 import java.util.ArrayList;
 import java.util.List;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.databinding.ActivityDsNguoiDungBinding;
+import model.UserData;
 
 public class DsNguoiDungActivity extends AppCompatActivity {
 

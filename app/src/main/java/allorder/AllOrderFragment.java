@@ -12,17 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.FragmentAllOrderBinding;
-import com.example.orderapp.history.OrderHistoryAdapter;
-import com.example.orderapp.history.detail.OrderHistoryDetailActivity;
-import com.example.orderapp.model.OrderHistoryModel;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+
+import database.DatabaseHandler;
+import detail.OrderHistoryDetailActivity;
+import fpoly.htdshoes_pro1121.databinding.FragmentAllOrderBinding;
+import history.OrderHistoryAdapter;
+import model.OrderHistoryModel;
 
 
 public class AllOrderFragment extends Fragment implements OrderHistoryAdapter.OnItemClickListener {

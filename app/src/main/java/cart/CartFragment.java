@@ -13,12 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.orderapp.SharedPref;
-import com.example.orderapp.ShowMessageHelper;
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.FragmentCartBinding;
-import com.example.orderapp.model.CartModel;
-import com.example.orderapp.model.UserData;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
@@ -28,6 +23,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.d.SharedPref;
+import fpoly.htdshoes_pro1121.d.ShowMessageHelper;
+import fpoly.htdshoes_pro1121.databinding.FragmentCartBinding;
+import model.CartModel;
+import model.UserData;
 
 
 public class CartFragment extends Fragment implements CartAdapter.OnItemClickListener {

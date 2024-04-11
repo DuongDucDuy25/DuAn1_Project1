@@ -12,12 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.orderapp.SharedPref;
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.FragmentOrderHistoryBinding;
-import com.example.orderapp.history.detail.OrderHistoryDetailActivity;
-import com.example.orderapp.model.OrderHistoryModel;
-import com.example.orderapp.model.UserData;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
@@ -25,6 +20,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+
+import database.DatabaseHandler;
+import detail.OrderHistoryDetailActivity;
+import fpoly.htdshoes_pro1121.d.SharedPref;
+import fpoly.htdshoes_pro1121.databinding.FragmentOrderHistoryBinding;
+import model.OrderHistoryModel;
+import model.UserData;
 
 
 public class OrderHistoryFragment extends Fragment implements OrderHistoryAdapter.OnItemClickListener {

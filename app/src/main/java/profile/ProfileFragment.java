@@ -1,6 +1,8 @@
 package profile;
 
-import static com.example.orderapp.SharedPref.USER_DATA;
+
+
+import static fpoly.htdshoes_pro1121.d.SharedPref.USER_DATA;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,18 +18,20 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.orderapp.LoginActivity;
-import com.example.orderapp.R;
-import com.example.orderapp.SharedPref;
-import com.example.orderapp.ShowMessageHelper;
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.FragmentProfileBinding;
-import com.example.orderapp.model.UserData;
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
 import java.util.Objects;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.R;
+import fpoly.htdshoes_pro1121.d.LoginActivity;
+import fpoly.htdshoes_pro1121.d.SharedPref;
+import fpoly.htdshoes_pro1121.d.ShowMessageHelper;
+import fpoly.htdshoes_pro1121.databinding.FragmentProfileBinding;
+import model.UserData;
 
 
 public class ProfileFragment extends Fragment {
@@ -54,7 +58,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        userData = new Gson().fromJson(SharedPref.read(SharedPref.USER_DATA, ""), UserData.class);
+        userData = new Gson().fromJson(SharedPref.read(USER_DATA, ""), UserData.class);
         databaseHandler = new DatabaseHandler(getContext());
         if (userData != null) {
             binding.accountName.setText("Tài khoản: " + userData.getUserName());
@@ -191,7 +195,7 @@ public class ProfileFragment extends Fragment {
     private void updateUserData() {
         UserData userDataNew = databaseHandler.getUserData(userData.getId());
         SharedPref.write(USER_DATA, new Gson().toJson(userDataNew));
-        userData = new Gson().fromJson(SharedPref.read(SharedPref.USER_DATA, ""), UserData.class);
+        userData = new Gson().fromJson(SharedPref.read(USER_DATA, ""), UserData.class);
         if (userData != null) {
             binding.accountName.setText("Tài khoản: " + userData.getUserName());
             binding.address.setText("Địa chỉ: " + userData.getAddress());

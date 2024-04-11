@@ -8,10 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.orderapp.R;
-import com.example.orderapp.model.UserData;
 
 import java.util.List;
+
+import fpoly.htdshoes_pro1121.R;
+import model.UserData;
 
 public class DanhSachNguoiDungAdapter extends RecyclerView.Adapter<DanhSachNguoiDungAdapter.DsNguoiDungViewHolder> {
 

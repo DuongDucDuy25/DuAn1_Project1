@@ -6,10 +6,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.ActivityDetailFoodBinding;
-import com.example.orderapp.model.FoodModel;
-import com.example.orderapp.model.UserData;
+
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -17,6 +14,12 @@ import com.google.gson.Gson;
 
 import java.text.DecimalFormat;
 import java.util.Objects;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.R;
+import fpoly.htdshoes_pro1121.databinding.ActivityDetailFoodBinding;
+import model.FoodModel;
+import model.UserData;
 
 public class DetailFoodActivity extends AppCompatActivity {
 

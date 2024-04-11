@@ -8,16 +8,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orderapp.SharedPref;
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.ActivityOrderHistoryDetailBinding;
-import com.example.orderapp.model.CartModel;
-import com.example.orderapp.model.UserData;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.d.SharedPref;
+import fpoly.htdshoes_pro1121.databinding.ActivityOrderHistoryDetailBinding;
+import model.CartModel;
+import model.UserData;
 
 public class OrderHistoryDetailActivity extends AppCompatActivity {
 

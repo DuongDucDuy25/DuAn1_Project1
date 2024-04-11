@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name=""
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+
+    <fragment
+        android:id="@+id/orderHistoryFragment"
+        android:name="history.OrderHistoryFragment"
+        android:label="fragment_order_history"
+        tools:layout="@layout/fragment_order_history" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/allOrderFragment"
+        android:name="allorder.AllOrderFragment"
+        android:label="fragment_all_order"
+        tools:layout="@layout/fragment_all_order" />
+    <fragment
+        android:id="@+id/allCategory"
+        android:name="theloai.TheLoaiFragment"
+        android:label="fragment_the_loai"
+        tools:layout="@layout/fragment_the_loai" />
+    <fragment
+        android:id="@+id/quanli"
+        android:name="fpoly.htdshoes_pro1121.d.QuanLiFragment"
+        android:label="fragment_danh_sach_nguoi_dung"
+        tools:layout="@layout/fragment_danh_sach_nguoi_dung" />
+
+
+</navigation>

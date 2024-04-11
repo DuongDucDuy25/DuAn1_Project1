@@ -1,6 +1,8 @@
 package fpoly.htdshoes_pro1121.d;
 
-import static com.example.orderapp.ShowMessageHelper.showMessage;
+
+
+import static fpoly.htdshoes_pro1121.d.ShowMessageHelper.showMessage;
 
 import android.Manifest;
 import android.content.Intent;
@@ -17,14 +19,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.ActivityThemSanPhamBinding;
-import com.example.orderapp.model.FoodModel;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.databinding.ActivityThemSanPhamBinding;
+import model.FoodModel;
 
 public class ThemSanPhamActivity extends AppCompatActivity {
 
@@ -87,9 +91,9 @@ public class ThemSanPhamActivity extends AppCompatActivity {
                 foodModel.setSoluong(soluong);
                 long result = databaseHandler.addProduct(foodModel);
                 if (result == -1) {
-                    ShowMessageHelper.showMessage(this, "Thêm sản phẩm thất bại");
+                    showMessage(this, "Thêm sản phẩm thất bại");
                 } else {
-                    ShowMessageHelper.showMessage(this, "Thêm sản phẩm thành công");
+                    showMessage(this, "Thêm sản phẩm thành công");
                 }
             }
 

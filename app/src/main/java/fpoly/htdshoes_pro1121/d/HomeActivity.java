@@ -7,9 +7,11 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.orderapp.databinding.ActivityHomeBinding;
-import com.example.orderapp.model.UserData;
 import com.google.gson.Gson;
+
+import fpoly.htdshoes_pro1121.R;
+import fpoly.htdshoes_pro1121.databinding.ActivityHomeBinding;
+import model.UserData;
 
 public class HomeActivity extends AppCompatActivity {
 

@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import fpoly.htdshoes_pro1121.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

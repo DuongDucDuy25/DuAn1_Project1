@@ -1,18 +1,22 @@
 package fpoly.htdshoes_pro1121.d;
 
-import static com.example.orderapp.ShowMessageHelper.showMessage;
+
+
+import static fpoly.htdshoes_pro1121.d.ShowMessageHelper.showMessage;
 
 import android.os.Bundle;
 import android.text.TextUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.ActivitySignUpBinding;
-import com.example.orderapp.model.UserData;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Objects;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.databinding.ActivitySignUpBinding;
+import model.UserData;
 
 public class SignUpActivity extends AppCompatActivity {
 

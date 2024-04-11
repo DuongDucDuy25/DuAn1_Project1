@@ -7,17 +7,19 @@ import android.text.TextUtils;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.ActivityChiTietTheLoaiBinding;
-import com.example.orderapp.home.HomeAdapter;
-import com.example.orderapp.model.FoodModel;
-import com.example.orderapp.model.UserData;
-import com.example.orderapp.updatefood.UpdateFoodActivity;
+
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.databinding.ActivityChiTietTheLoaiBinding;
+import home.HomeAdapter;
+import model.FoodModel;
+import model.UserData;
+import updatefood.UpdateFoodActivity;
 
 public class ChiTietTheLoaiActivity extends AppCompatActivity implements HomeAdapter.OnItemClickListener {
 

@@ -1,20 +1,24 @@
 package fpoly.htdshoes_pro1121.d;
 
-import static com.example.orderapp.SharedPref.USER_DATA;
-import static com.example.orderapp.ShowMessageHelper.showMessage;
+
+
+import static fpoly.htdshoes_pro1121.d.SharedPref.USER_DATA;
+import static fpoly.htdshoes_pro1121.d.ShowMessageHelper.showMessage;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.ActivityLoginBinding;
-import com.example.orderapp.model.UserData;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
 import java.util.Objects;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.databinding.ActivityLoginBinding;
+import model.UserData;
 
 public class LoginActivity extends AppCompatActivity {
 

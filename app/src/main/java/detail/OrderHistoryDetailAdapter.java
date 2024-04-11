@@ -11,11 +11,13 @@ import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.orderapp.R;
-import com.example.orderapp.model.CartModel;
+
 
 import java.text.DecimalFormat;
 import java.util.List;
+
+import fpoly.htdshoes_pro1121.R;
+import model.CartModel;
 
 public class OrderHistoryDetailAdapter extends RecyclerView.Adapter<OrderHistoryDetailAdapter.OrderHistoryDetailViewHolder> {
 

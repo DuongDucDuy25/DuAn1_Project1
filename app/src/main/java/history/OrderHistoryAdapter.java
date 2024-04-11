@@ -8,12 +8,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.orderapp.R;
-import com.example.orderapp.model.CartModel;
-import com.example.orderapp.model.OrderHistoryModel;
+
 
 import java.text.DecimalFormat;
 import java.util.List;
+
+import fpoly.htdshoes_pro1121.R;
+import model.CartModel;
+import model.OrderHistoryModel;
 
 public class OrderHistoryAdapter extends RecyclerView.Adapter<OrderHistoryAdapter.OrderHistoryViewHolder> {
 

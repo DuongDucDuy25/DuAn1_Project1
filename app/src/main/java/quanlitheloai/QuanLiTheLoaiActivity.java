@@ -6,8 +6,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orderapp.ChiTietTheLoaiActivity;
-import com.example.orderapp.databinding.ActivityQuanLiTheLoaiBinding;
+import fpoly.htdshoes_pro1121.d.ChiTietTheLoaiActivity;
+import fpoly.htdshoes_pro1121.databinding.ActivityQuanLiTheLoaiBinding;
+
 
 public class QuanLiTheLoaiActivity extends AppCompatActivity {
 

@@ -9,14 +9,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.orderapp.database.DatabaseHandler;
-import com.example.orderapp.databinding.ActivityThongKeDoanhThuBinding;
-import com.example.orderapp.model.CartModel;
-import com.example.orderapp.model.OrderHistoryModel;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.databinding.ActivityThongKeDoanhThuBinding;
+import model.CartModel;
+import model.OrderHistoryModel;
 
 public class ThongKeDoanhThuActivity extends AppCompatActivity {
 
