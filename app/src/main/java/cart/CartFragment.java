@@ -34,7 +34,6 @@ import model.UserData;
 
 public class CartFragment extends Fragment implements CartAdapter.OnItemClickListener {
     private FragmentCartBinding binding;
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private UserData userData;
     private List<CartModel> list = new ArrayList<>();
     private CartAdapter adapter;

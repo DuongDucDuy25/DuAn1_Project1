@@ -21,7 +21,6 @@ import model.UserData;
 public class SignUpActivity extends AppCompatActivity {
 
     private ActivitySignUpBinding binding;
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DatabaseHandler databaseHandler;
 
 

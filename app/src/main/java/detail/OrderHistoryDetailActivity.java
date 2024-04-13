@@ -23,7 +23,6 @@ import model.UserData;
 public class OrderHistoryDetailActivity extends AppCompatActivity {
 
     private ActivityOrderHistoryDetailBinding binding;
-    private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private UserData userData;
     String documentID;
     List<CartModel> list = new ArrayList<>();

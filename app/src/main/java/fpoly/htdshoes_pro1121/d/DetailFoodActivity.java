@@ -25,7 +25,6 @@ public class DetailFoodActivity extends AppCompatActivity {
 
     private ActivityDetailFoodBinding binding;
     private FoodModel foodModel;
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private UserData userData;
 
     @Override

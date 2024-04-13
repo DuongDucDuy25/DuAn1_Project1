@@ -32,7 +32,6 @@ import model.UserData;
 public class OrderHistoryFragment extends Fragment implements OrderHistoryAdapter.OnItemClickListener {
 
     private FragmentOrderHistoryBinding binding;
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private UserData userData;
     private OrderHistoryAdapter adapter;
     private List<OrderHistoryModel> list = new ArrayList<>();

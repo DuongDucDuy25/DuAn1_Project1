@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "848775811217",
+    "project_id": "htd-shoes",
+    "storage_bucket": "htd-shoes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848775811217:android:897a9f9df3b39fdd88af30",
+        "android_client_info": {
+          "package_name": "fpoly.htdshoes_pro1121"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzVSCZnVJpdyO2nVsbvUqppXUEct1TXlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848775811217:android:897a9f9df3b39fdd88af30",
+        "android_client_info": {
+          "package_name": "fpoly.htdshoes_pro1121"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzVSCZnVJpdyO2nVsbvUqppXUEct1TXlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848775811217:android:897a9f9df3b39fdd88af30",
+        "android_client_info": {
+          "package_name": "fpoly.htdshoes_pro1121"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzVSCZnVJpdyO2nVsbvUqppXUEct1TXlM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

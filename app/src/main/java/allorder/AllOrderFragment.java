@@ -30,7 +30,6 @@ public class AllOrderFragment extends Fragment implements OrderHistoryAdapter.On
 
     private FragmentAllOrderBinding binding;
 
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private OrderHistoryAdapter adapter;
     private List<OrderHistoryModel> list = new ArrayList<>();
     private DatabaseHandler databaseHandler;

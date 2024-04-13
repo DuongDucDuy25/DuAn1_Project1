@@ -24,7 +24,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private ActivityLoginBinding binding;
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DatabaseHandler databaseHandler;
 
     @Override

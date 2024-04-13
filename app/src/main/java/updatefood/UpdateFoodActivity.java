@@ -24,7 +24,6 @@ import model.FoodModel;
 public class UpdateFoodActivity extends AppCompatActivity {
 
     private ActivityUpdateFoodBinding binding;
-    private FirebaseFirestore firestore = FirebaseFirestore.getInstance();
     private int documentID = -1;
     private FoodModel foodModel;
     private DatabaseHandler databaseHandler;

@@ -37,7 +37,6 @@ import model.UserData;
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private UserData userData;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog alertDialog;

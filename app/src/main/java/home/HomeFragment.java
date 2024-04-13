@@ -35,7 +35,6 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnItemClickLis
     private FragmentHomeBinding binding;
     private List<FoodModel> list = new ArrayList<>();
     private HomeAdapter adapter;
-    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private UserData userData;
     private DatabaseHandler databaseHandler;
 
