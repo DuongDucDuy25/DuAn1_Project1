@@ -23,6 +23,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        // Khởi tạo SharedPreferences
+        SharedPref.init(this);  // Thêm dòng này để khởi tạo mSharedPref
         setUp();
         setOnClick();
 

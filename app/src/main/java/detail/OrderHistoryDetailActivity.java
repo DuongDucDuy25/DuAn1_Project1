@@ -103,13 +103,21 @@ public class OrderHistoryDetailActivity extends AppCompatActivity {
     }
 
     private void updateStatusOrder() {
+        // Giả sử bạn lấy trạng thái hiện tại từ database hoặc truyền vào. Ở đây mình giả định là biến currentStatus
+        int currentStatus = databaseHandler.getCurrentStatus(id);
+
+        // Kiểm tra xem trạng thái mới có phải là trạng thái tiếp theo hợp lệ không
+        if (currentStatus >= trangthaidonhang) {
+            return;
+        }
+
+        // Cập nhật trạng thái mới nếu là hợp lệ
         int result = databaseHandler.updateTrangThaiDonHang(id, trangthaidonhang);
         if (result == -1) {
             Toast.makeText(OrderHistoryDetailActivity.this, "Chuyển trạng thái thất bại", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(OrderHistoryDetailActivity.this, "Chuyển trạng thái thành công", Toast.LENGTH_SHORT).show();
-
         }
-
     }
+
 }

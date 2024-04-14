@@ -59,6 +59,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     String CREATE_ADMIN = "INSERT INTO " + TABLE_USER + "(fullName, userName, password,phone,address,role) VALUES ('ho va ten admin', 'admin', 'admin',0987654321,'HaNoi','admin')";
     String CREATE_USER = "INSERT INTO " + TABLE_USER + "(fullName, userName, password,phone,address,role) VALUES ('ho va ten admin', 'tet123', '123',0987654321,'HaNoi','user')";
 
+    public int getCurrentStatus(int orderId) {
+        int status = -1;
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query(
+                    TABLE_ORDER,               // The table to query
+                    new String[] {"trangthaidonhang"}, // The columns to return
+                    "id = ?",                   // The columns for the WHERE clause
+                    new String[] {String.valueOf(orderId)}, // The values for the WHERE clause
+                    null,                       // don't group the rows
+                    null,                       // don't filter by row groups
+                    null                        // The sort order
+            );
+            if (cursor != null && cursor.moveToFirst()) {
+                status = cursor.getInt(cursor.getColumnIndex("trangthaidonhang"));
+            }
+            if (cursor != null) {
+                cursor.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close();
+        }
+        return status;
+    }
+
     public long createOrder(String date_order, int userID, String products, int phuongthucthanhtoan, String diachinhanhang) {
         //0 thanh toan khi nhan hang , 1 thanh toan online
         SQLiteDatabase db = this.getWritableDatabase();
