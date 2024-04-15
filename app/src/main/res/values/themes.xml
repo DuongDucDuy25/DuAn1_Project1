@@ -1,9 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.OrderApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.OrderApp" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="fontFamily">@font/googlesans</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="materialThemeOverlay">?attr/dynamicColorThemeOverlay</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.Material3.AlertDialog</item>
+        <item name="dialogTheme">@style/ThemeOverlay.Material3.AlertDialog</item>
     </style>
-
+    <style name="ThemeOverlay.Material3.AlertDialog" parent="@style/ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:windowBackground">@drawable/m3_alert_dialog_background</item>
+    </style>
     <style name="Theme.OrderApp" parent="Base.Theme.OrderApp" />
 </resources>
