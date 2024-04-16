@@ -1,6 +1,10 @@
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class OrderHistoryModel {
     String documentID;
@@ -10,8 +14,8 @@ public class OrderHistoryModel {
     int phuongthucthanhtoan;
     List<CartModel> foods;
     String diachinhanhang;
-
     int trangthaidonhang;
+    long timestamp;
 
     public OrderHistoryModel() {
     }
@@ -83,5 +87,26 @@ public class OrderHistoryModel {
 
     public void setTrangthaidonhang(int trangthaidonhang) {
         this.trangthaidonhang = trangthaidonhang;
+    }
+
+    public String getDate_order() {
+        return dateOrder;
+    }
+
+    public long getDate_order_timestamp() {
+        // Chuyển đổi String dateOrder thành timestamp
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        try {
+            Date date = sdf.parse(this.dateOrder);
+            return date.getTime(); // Trả về timestamp
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return 0; // Trường hợp xảy ra lỗi
+        }
+    }
+
+
+    public void setDate_order_timestamp(long timestamp) {
+        this.timestamp = timestamp; // Thiết lập giá trị timestamp
     }
 }

@@ -9,7 +9,6 @@ public class FoodModel implements Serializable {
     Long price;
     int id;
     int loaiGiay;
-
     int soluong;
 
 
@@ -25,25 +24,15 @@ public class FoodModel implements Serializable {
     public FoodModel() {
     }
 
-
-    public FoodModel(String image, String name, String description, Long price, int loaiGiay) {
-        this.image = image;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.loaiGiay = loaiGiay;
-    }
-
-    public FoodModel(String image, String name, String description, Long price, int id, int loaiGiay) {
+    public FoodModel(String image, String name, String description, Long price, int id, int loaiGiay, int soluong) {
         this.image = image;
         this.name = name;
         this.description = description;
         this.price = price;
         this.id = id;
         this.loaiGiay = loaiGiay;
+        this.soluong = soluong;
     }
-
-
 
     public String getImage() {
         return image;

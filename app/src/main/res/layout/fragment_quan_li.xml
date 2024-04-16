@@ -3,30 +3,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center_horizontal"
-    android:layout_marginTop="32dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".d.QuanLiFragment">
-
-
-    <Button
-        android:id="@+id/quanlinguoidung"
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layout_height="match_parent">
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quản lí người dùng" />
+        app:strokeWidth="0dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="50dp"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:background="@drawable/background_radius"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logoshoe">
+        </ImageView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <Button
-        android:id="@+id/quanlitheloai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Quản lí thể loại" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/background_radius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/quanlinguoidung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quản lí người dùng" />
 
-    <Button
-        android:id="@+id/thongke"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Thống kê doanh thu" />
+        <Button
+            android:id="@+id/quanlitheloai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Quản lí thể loại" />
+
+        <Button
+            android:id="@+id/thongke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Thống kê doanh thu" />
+    </LinearLayout>
+</LinearLayout>
 </LinearLayout>

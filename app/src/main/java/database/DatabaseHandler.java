@@ -444,7 +444,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 String image = cursor.getString(cursor.getColumnIndexOrThrow("image"));
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
                 int loaiGiay1 = cursor.getInt(cursor.getColumnIndexOrThrow("loaiGiay"));
-                list.add(new FoodModel(image, name, description, price, id, loaiGiay1));
+                int soLuong = cursor.getInt(cursor.getColumnIndexOrThrow("soluong"));
+                list.add(new FoodModel(image, name, description, price, id, loaiGiay1, soLuong));
             } while (cursor.moveToNext());
             cursor.close();
         }

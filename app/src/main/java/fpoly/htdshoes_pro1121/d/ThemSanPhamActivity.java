@@ -94,6 +94,7 @@
                         showMessage(this, "Thêm sản phẩm thất bại");
                     } else {
                         showMessage(this, "Thêm sản phẩm thành công");
+                        startActivity(new Intent(ThemSanPhamActivity.this, HomeActivity.class));
                     }
                 }
 

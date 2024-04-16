@@ -4,6 +4,7 @@ package fpoly.htdshoes_pro1121.d;
 
 import static fpoly.htdshoes_pro1121.d.ShowMessageHelper.showMessage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
@@ -60,6 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
         user.setPhone(Objects.requireNonNull(binding.edtPhone.getText()).toString());
         user.setAddress(Objects.requireNonNull(binding.edtAddress.getText()).toString());
         databaseHandler.addUser(user);
+        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
     }
 
 }

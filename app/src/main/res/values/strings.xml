@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">OrderApp</string>
-
     <string name="my_text"><u>Đổi mật khẩu</u></string>
     <string name="my_text5"><u>Đổi họ và tên</u></string>
     <string name="my_text3"><u>Đổi địa chỉ</u></string>

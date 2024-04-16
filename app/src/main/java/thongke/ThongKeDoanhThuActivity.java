@@ -5,16 +5,20 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
+import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.R;
 import fpoly.htdshoes_pro1121.databinding.ActivityThongKeDoanhThuBinding;
 import model.CartModel;
 import model.OrderHistoryModel;
@@ -31,64 +35,73 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
         binding = ActivityThongKeDoanhThuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         databaseHandler = new DatabaseHandler(this);
-        DecimalFormat formatter = new DecimalFormat("#,### VNĐ");
         list = databaseHandler.getAllOrder();
-        setSpannableStringBuilder("Số đơn hàng đã bán: ", list.size() + "", binding.textView4);
-        setSpannableStringBuilder("Doanh thu: ", formatter.format(getTongTien()), binding.textView5);
-        setSpannableStringBuilder("Số lượng sản phẩm đã bán: ", getSoLuongBanDuoc() + " sản phẩm", binding.textView6);
-
-        setSpannableStringBuilder("Giày sneaker: ", getSoLuongGiayBanDuoc(0) + " sản phẩm", binding.textView7);
-        setSpannableStringBuilder("Giày da: ", getSoLuongGiayBanDuoc(1) + " sản phẩm", binding.textView8);
-        setSpannableStringBuilder("Giày thể thao: ", getSoLuongGiayBanDuoc(2) + " sản phẩm", binding.textView9);
-        setSpannableStringBuilder("Giày lười: ", getSoLuongGiayBanDuoc(3) + " sản phẩm", binding.textView10);
+        showStatistics();
     }
 
-    public void setSpannableStringBuilder(String textStart, String textEnd, TextView textView) {
+    private void showStatistics() {
+        DecimalFormat formatter = new DecimalFormat("#,### VNĐ");
+        int totalRevenue = calculateTotalRevenue();
+        setSpannableStringBuilder("Doanh thu: ", formatter.format(totalRevenue), binding.textView5);
+        int totalQuantitySold = calculateTotalQuantitySold();
+        setSpannableStringBuilder("Số lượng sản phẩm đã bán: ", totalQuantitySold + " sản phẩm", binding.textView6);
+        showProductStatisticsByDay();
+    }
+
+    private int calculateTotalRevenue() {
+        int totalRevenue = 0;
+        for (OrderHistoryModel orderHistoryModel : list) {
+            if (orderHistoryModel.getFoods() != null) {
+                for (CartModel cartModel : orderHistoryModel.getFoods()) {
+                    totalRevenue += cartModel.getAmount() * cartModel.getPrice();
+                }
+            }
+        }
+        return totalRevenue;
+    }
+
+    private int calculateTotalQuantitySold() {
+        int totalQuantitySold = 0;
+        for (OrderHistoryModel orderHistoryModel : list) {
+            if (orderHistoryModel.getFoods() != null) {
+                for (CartModel cartModel : orderHistoryModel.getFoods()) {
+                    totalQuantitySold += cartModel.getAmount();
+                }
+            }
+        }
+        return totalQuantitySold;
+    }
+
+    private void showProductStatisticsByDay() {
+        for (OrderHistoryModel orderHistoryModel : list) {
+            String date = orderHistoryModel.getDate_order();
+            int quantitySold = calculateQuantitySoldByDate(orderHistoryModel.getDate_order());
+
+            TextView textView = new TextView(this);
+            textView.setText("Ngày " + date + ": " + quantitySold + " sản phẩm");
+            binding.linearLayout.addView(textView);
+        }
+    }
+    private int calculateQuantitySoldByDate(String date) {
+        int quantitySold = 0;
+        for (OrderHistoryModel orderHistoryModel : list) {
+            if (orderHistoryModel.getDate_order().equals(date) && orderHistoryModel.getFoods() != null) {
+                for (CartModel cartModel : orderHistoryModel.getFoods()) {
+                    quantitySold += cartModel.getAmount();
+                }
+            }
+        }
+        return quantitySold;
+    }
+    private void setSpannableStringBuilder(String textStart, String textEnd, TextView textView) {
         SpannableStringBuilder builder = new SpannableStringBuilder();
         SpannableString str1 = new SpannableString(textStart);
         str1.setSpan(new ForegroundColorSpan(Color.BLACK), 0, str1.length(), 0);
         builder.append(str1);
         SpannableString str2 = new SpannableString(textEnd);
-        str2.setSpan(new ForegroundColorSpan(Color.RED), 0, str2.length(), 0);
+        str2.setSpan(new ForegroundColorSpan(Color.RED),
+                0, str2.length(), 0);
         builder.append(str2);
-        textView.setText(builder, TextView.BufferType.SPANNABLE);
-    }
-
-    public int getTongTien() {
-        final int[] tongtien = {0};
-        list.forEach(orderHistoryModel -> {
-            if (orderHistoryModel.getFoods() != null) {
-                for (CartModel cartModel : orderHistoryModel.getFoods()) {
-                    tongtien[0] += cartModel.getAmount() * cartModel.getPrice();
-                }
-            }
-        });
-        return tongtien[0];
-    }
-
-    public int getSoLuongBanDuoc() {
-        final int[] slBanDUoc = {0};
-        list.forEach(orderHistoryModel -> {
-            if (orderHistoryModel.getFoods() != null) {
-                for (CartModel cartModel : orderHistoryModel.getFoods()) {
-                    slBanDUoc[0] += cartModel.getAmount();
-                }
-            }
-        });
-        return slBanDUoc[0];
-    }
-
-    public int getSoLuongGiayBanDuoc(int loaiGiay) {
-        final int[] soluonggiay = {0};
-        list.forEach(orderHistoryModel -> {
-            if (orderHistoryModel.getFoods() != null) {
-                for (CartModel cartModel : orderHistoryModel.getFoods()) {
-                    if (cartModel.getLoaiGiay() == loaiGiay) {
-                        soluonggiay[0] += cartModel.getAmount();
-                    }
-                }
-            }
-        });
-        return soluonggiay[0];
+        textView.setText(builder);
     }
 }

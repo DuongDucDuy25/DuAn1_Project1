@@ -2,16 +2,21 @@ package home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ViewSwitcher;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -21,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.R;
 import fpoly.htdshoes_pro1121.d.DetailFoodActivity;
 import fpoly.htdshoes_pro1121.d.SharedPref;
 import fpoly.htdshoes_pro1121.d.ShowMessageHelper;
@@ -77,6 +83,27 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnItemClickLis
             }
         });
 
+
+        final int[] imageResources = {R.drawable.banner_1, R.drawable.banner_2,R.drawable.banner_1};
+        final int[] currentIndex = {0};
+
+        binding.viewpager.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                ImageView imageView = new ImageView(requireContext());
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                return imageView;
+            }
+        });
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                binding.viewpager.setImageResource(imageResources[currentIndex[0]]);
+                currentIndex[0] = (currentIndex[0] + 1) % imageResources.length;
+                new Handler().postDelayed(this, 2000);
+            }
+        }, 500);
+
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -109,7 +136,9 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnItemClickLis
         adapter = new HomeAdapter(list);
         adapter.setOnItemClickListener(HomeFragment.this);
         binding.recyclerView.setAdapter(adapter);
-        binding.recyclerView.setHasFixedSize(true);
+        GridLayoutManager layoutManager = new GridLayoutManager(requireContext(), 3);
+        binding.recyclerView.setLayoutManager(layoutManager);
+
     }
 
     @Override

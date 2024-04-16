@@ -8,19 +8,26 @@
     tools:context="history.OrderHistoryFragment">
 
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Chi tiết order"
-            android:textColor="@color/orange"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+      <com.google.android.material.card.MaterialCardView
+          android:layout_width="wrap_content"
+          app:strokeWidth="0dp"
+          android:layout_marginStart="15dp"
+          android:layout_marginBottom="10dp"
+          android:layout_height="wrap_content">
+          <TextView
+              android:background="@drawable/background_radius"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:padding="5dp"
+              android:text="Chi tiết order"
+              android:textSize="16sp"
+              android:textStyle="bold" />
+      </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -28,55 +35,69 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:orientation="vertical"
+            android:layout_marginBottom="10dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:spanCount="2" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Chuyển trạng thái đơn hàng"
-            android:textColor="@color/orange"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+      <com.google.android.material.card.MaterialCardView
+          android:layout_width="wrap_content"
+          android:layout_marginStart="15dp"
+          app:strokeWidth="0dp"
+          android:layout_height="wrap_content">
+          <TextView
+              android:background="@drawable/background_radius"
+              android:id="@+id/textView2"
+              android:padding="5dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Chuyển trạng thái đơn hàng"
+              android:textSize="16sp"
+              android:textStyle="bold" />
+      </com.google.android.material.card.MaterialCardView>
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical">
+      <LinearLayout
+          android:orientation="vertical"
+          android:background="@drawable/background_radius"
+          android:layout_width="match_parent"
+          android:layout_margin="10dp"
+          android:layout_height="wrap_content">
+          <RadioGroup
+              android:id="@+id/radioGroup"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginHorizontal="16dp"
+              android:layout_marginTop="15dp"
+              android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/radio1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Xác nhận đơn hàng" />
+              <RadioButton
+                  android:id="@+id/radio1"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Xác nhận đơn hàng" />
 
-            <RadioButton
-                android:id="@+id/radio2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Xác nhận đã vận chuyển đơn hàng" />
+              <RadioButton
+                  android:id="@+id/radio2"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Xác nhận đã vận chuyển đơn hàng" />
 
-            <RadioButton
-                android:id="@+id/radio3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Xác nhận hoàn thành đơn hàng" />
+              <RadioButton
+                  android:id="@+id/radio3"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Xác nhận hoàn thành đơn hàng" />
 
-            <Button
-                android:id="@+id/btnChuyenTrangThai"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:text="Chuyển trạng thái đơn hàng" />
+              <Button
+                  android:id="@+id/btnChuyenTrangThai"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="15dp"
+                  android:layout_marginBottom="15dp"
+                  android:text="Chuyển trạng thái đơn hàng" />
 
-        </RadioGroup>
+          </RadioGroup>
+      </LinearLayout>
     </LinearLayout>
 
 

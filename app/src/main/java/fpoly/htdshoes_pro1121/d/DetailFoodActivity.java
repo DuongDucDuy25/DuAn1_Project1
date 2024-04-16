@@ -76,8 +76,6 @@ public class DetailFoodActivity extends AppCompatActivity {
             } else {
                 if (foodModel != null && userData != null) {
                     DatabaseHandler databaseHandler = new DatabaseHandler(this);
-
-                    //int amount, String description, String foodId, String image, String name, Long price, int userID
                     int amount = Integer.parseInt(binding.tvSoLuong.getText().toString());
                     String description = binding.description.getText().toString();
                     int foodId = foodModel.getId();
