@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="history.OrderHistoryFragment">
+    tools:context="history.OrderHistoryFragment"
+    android:id="@+id/orderHistoryFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

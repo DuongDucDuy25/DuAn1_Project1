@@ -3,42 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="150dp"
-<<<<<<< HEAD
     android:layout_height="300dp">
-=======
-    android:layout_height="wrap_content">
->>>>>>> e491c2e162aec10378e5255cae14dcf6b5b42647
+
 
     <LinearLayout
-        android:padding="5dp"
-        android:layout_margin="10dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:background="@drawable/background_radius"
-<<<<<<< HEAD
         android:layout_height="300dp"
-        >
-=======
-        android:layout_height="wrap_content">
->>>>>>> e491c2e162aec10378e5255cae14dcf6b5b42647
+        android:layout_margin="10dp"
+        android:background="@drawable/background_radius"
+        android:orientation="vertical"
+        android:padding="5dp">
+
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="wrap_content"
-            app:strokeWidth="0dp"
-            android:layout_gravity="center"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
+            android:layout_gravity="center"
             app:cardCornerRadius="20dp"
-            >
-=======
-            app:cardCornerRadius="20dp">
->>>>>>> e491c2e162aec10378e5255cae14dcf6b5b42647
+            app:strokeWidth="0dp">
+
 
             <ImageView
-                android:background="@drawable/background_radius"
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:background="@drawable/background_radius"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_logo" />
         </com.google.android.material.card.MaterialCardView>
@@ -47,53 +36,36 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:layout_gravity="center"
             tools:text="Tên món ăn" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            tools:text="Giá"
-            />
+            android:layout_marginTop="10dp"
+            tools:text="Giá" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom|center"
-            >
+            android:gravity="bottom|center">
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:textColor="#F20B0B"
                 android:layout_gravity="center|bottom"
-                tools:text="TextView"
+                android:layout_marginTop="30dp"
                 android:gravity="center"
+                android:textColor="#F20B0B"
+                tools:text="TextView"
 
                 />
         </LinearLayout>
-
-=======
-            android:layout_marginTop="4dp"
-            android:layout_gravity="center"
-            tools:text="Giá" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="#F20B0B"
-           android:layout_gravity="center"
-            tools:text="TextView" />
->>>>>>> e491c2e162aec10378e5255cae14dcf6b5b42647
 
         <TextView
             android:id="@+id/tvID"

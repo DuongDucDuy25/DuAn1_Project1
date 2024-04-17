@@ -1,5 +1,6 @@
 package fpoly.htdshoes_pro1121.d;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -89,6 +90,7 @@ public class DetailFoodActivity extends AppCompatActivity {
                         ShowMessageHelper.showMessage(DetailFoodActivity.this, "Thêm giỏ hàng thất bại");
                     } else {
                         ShowMessageHelper.showMessage(DetailFoodActivity.this, "Thêm giỏ hàng thành công");
+                        startActivity(new Intent(DetailFoodActivity.this, HomeActivity.class));
                     }
                 }
             }

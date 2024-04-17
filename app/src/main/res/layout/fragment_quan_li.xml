@@ -7,7 +7,8 @@
     android:layout_gravity="center_horizontal"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".d.QuanLiFragment">
+    tools:context=".d.QuanLiFragment"
+    android:background="#D3C0F3">
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
@@ -40,21 +41,27 @@
             android:id="@+id/quanlinguoidung"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quản lí người dùng" />
+            android:text="Quản lí người dùng"
+            android:background="@drawable/custom_button"
+            app:backgroundTint="@null"/>
 
         <Button
             android:id="@+id/quanlitheloai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Quản lí thể loại" />
+            android:text="Quản lí thể loại"
+            android:background="@drawable/custom_button"
+            app:backgroundTint="@null"/>
 
         <Button
             android:id="@+id/thongke"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Thống kê doanh thu" />
+            android:text="Thống kê doanh thu"
+            android:background="@drawable/custom_button"
+            app:backgroundTint="@null"/>
     </LinearLayout>
 </LinearLayout>
 </LinearLayout>

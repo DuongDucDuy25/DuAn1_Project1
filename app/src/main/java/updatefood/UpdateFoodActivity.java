@@ -2,6 +2,7 @@ package updatefood;
 
 import static fpoly.htdshoes_pro1121.d.ShowMessageHelper.showMessage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.text.DecimalFormat;
 import java.util.Objects;
 
 import database.DatabaseHandler;
+import fpoly.htdshoes_pro1121.d.HomeActivity;
 import fpoly.htdshoes_pro1121.databinding.ActivityUpdateFoodBinding;
 import model.FoodModel;
 
@@ -93,6 +95,7 @@ public class UpdateFoodActivity extends AppCompatActivity {
                 showMessage(this, "Update thất bại");
             } else {
                 showMessage(this, "Update thành công");
+               startActivity(new Intent(UpdateFoodActivity.this, HomeActivity.class));
             }
         } catch (NumberFormatException e) {
             showMessage(this, "Vui lòng nhập số hợp lệ cho giá và số lượng");

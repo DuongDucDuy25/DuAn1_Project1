@@ -124,7 +124,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
                 }).setIcon(android.R.drawable.ic_dialog_alert).show();
 
             } else {
-                ShowMessageHelper.showMessage(getContext(), "Bạn chưa chọn món ăn");
+                ShowMessageHelper.showMessage(getContext(), "Bạn chưa chọn sản phẩm");
             }
         });
         binding.thanhToanKhiNhanHang.setOnClickListener(new View.OnClickListener() {
