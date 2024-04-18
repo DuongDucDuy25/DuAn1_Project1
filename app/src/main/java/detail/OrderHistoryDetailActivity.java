@@ -108,6 +108,7 @@ public class OrderHistoryDetailActivity extends AppCompatActivity {
 
         // Kiểm tra xem trạng thái mới có phải là trạng thái tiếp theo hợp lệ không
         if (currentStatus >= trangthaidonhang) {
+            Toast.makeText(this, "Không thể chuyển đổi trạng thái", Toast.LENGTH_SHORT).show();
             return;
         }
 

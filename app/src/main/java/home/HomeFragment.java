@@ -84,7 +84,7 @@ public class HomeFragment extends Fragment implements HomeAdapter.OnItemClickLis
         });
 
 
-        final int[] imageResources = {R.drawable.banner_1, R.drawable.banner_2,R.drawable.banner_1};
+        final int[] imageResources = {R.drawable.banner_1, R.drawable.banner_2,R.drawable.banner3,R.drawable.banner4,R.drawable.banner5};
         final int[] currentIndex = {0};
 
         binding.viewpager.setFactory(new ViewSwitcher.ViewFactory() {
