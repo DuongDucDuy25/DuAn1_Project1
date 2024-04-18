@@ -21,12 +21,10 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_vertical"
-<<<<<<< HEAD
+
             android:src="@drawable/logoshoe_remove"
             />
-=======
-            android:src="@drawable/ic_logo_shoes" />
->>>>>>> e491c2e162aec10378e5255cae14dcf6b5b42647
+
 
         <LinearLayout
             android:layout_width="wrap_content"
