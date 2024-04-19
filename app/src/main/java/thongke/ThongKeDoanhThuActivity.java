@@ -35,84 +35,64 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
         binding = ActivityThongKeDoanhThuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         databaseHandler = new DatabaseHandler(this);
-        list = databaseHandler.getAllOrder();
-        showStatistics();
-    }
-
-    private void showStatistics() {
-        // định dạng số tiê thành chuỗi
         DecimalFormat formatter = new DecimalFormat("#,### VNĐ");
-        int totalRevenue = calculateTotalRevenue();
-        setSpannableStringBuilder("Doanh thu: ", formatter.format(totalRevenue), binding.textView5);
-        // tính tổng doanh thu và tổng số lượng sản phẩm
-        int totalQuantitySold = calculateTotalQuantitySold();
-        // hiển thị lên giao diện
-        setSpannableStringBuilder("Số lượng sản phẩm đã bán: ", totalQuantitySold + " sản phẩm", binding.textView6);
-        showProductStatisticsByDay();
+        list = databaseHandler.getAllOrder();
+        setSpannableStringBuilder("Số đơn hàng đã bán: ", list.size() + "", binding.textView4);
+        setSpannableStringBuilder("Doanh thu: ", formatter.format(getTongTien()), binding.textView5);
+        setSpannableStringBuilder("Số lượng sản phẩm đã bán: ", getSoLuongBanDuoc() + " sản phẩm", binding.textView6);
+
+        setSpannableStringBuilder("Giày sneaker: ", getSoLuongGiayBanDuoc(0) + " sản phẩm", binding.textView7);
+        setSpannableStringBuilder("Giày da: ", getSoLuongGiayBanDuoc(1) + " sản phẩm", binding.textView8);
+        setSpannableStringBuilder("Giày thể thao: ", getSoLuongGiayBanDuoc(2) + " sản phẩm", binding.textView9);
+        setSpannableStringBuilder("Giày lười: ", getSoLuongGiayBanDuoc(3) + " sản phẩm", binding.textView10);
     }
 
-    // tính tổng số sản phẩm đã bán lặp lại danh sah đơn hàng
-    // sau đó nhân số lượng mặt hanàng với giá để tính tổng doanh thu
-    private int calculateTotalRevenue() {
-        int totalRevenue = 0;
-        for (OrderHistoryModel orderHistoryModel : list) {
-            if (orderHistoryModel.getFoods() != null) {
-                for (CartModel cartModel : orderHistoryModel.getFoods()) {
-                    totalRevenue += cartModel.getAmount() * cartModel.getPrice();
-                }
-            }
-        }
-        return totalRevenue;
-    }
-
-    // tính tổng số sản phẩm đã bán sau đó cộng dồn số lượng mặt hàng
-    private int calculateTotalQuantitySold() {
-        int totalQuantitySold = 0;
-        for (OrderHistoryModel orderHistoryModel : list) {
-            if (orderHistoryModel.getFoods() != null) {
-                for (CartModel cartModel : orderHistoryModel.getFoods()) {
-                    totalQuantitySold += cartModel.getAmount();
-                }
-            }
-        }
-        return totalQuantitySold;
-    }
-
-    // hiển thị thông tin theo từng ngày
-    private void showProductStatisticsByDay() {
-        for (OrderHistoryModel orderHistoryModel : list) {
-            String date = orderHistoryModel.getDate_order();
-            int quantitySold = calculateQuantitySoldByDate(orderHistoryModel.getDate_order());
-
-            TextView textView = new TextView(this);
-            textView.setText("Ngày " + date + ": " + quantitySold + " sản phẩm");
-            binding.linearLayout.addView(textView);
-        }
-    }
-
-    //tính tổng số lượng đã bán trong một ngày cụ thể
-    private int calculateQuantitySoldByDate(String date) {
-        int quantitySold = 0;
-        for (OrderHistoryModel orderHistoryModel : list) {
-            if (orderHistoryModel.getDate_order().equals(date) && orderHistoryModel.getFoods() != null) {
-                for (CartModel cartModel : orderHistoryModel.getFoods()) {
-                    quantitySold += cartModel.getAmount();
-                }
-            }
-        }
-        return quantitySold;
-    }
-
-    // xây dựng chuỗi văn bản có thể tùy chỉnh
-    private void setSpannableStringBuilder(String textStart, String textEnd, TextView textView) {
+    public void setSpannableStringBuilder(String textStart, String textEnd, TextView textView) {
         SpannableStringBuilder builder = new SpannableStringBuilder();
         SpannableString str1 = new SpannableString(textStart);
         str1.setSpan(new ForegroundColorSpan(Color.BLACK), 0, str1.length(), 0);
         builder.append(str1);
         SpannableString str2 = new SpannableString(textEnd);
-        str2.setSpan(new ForegroundColorSpan(Color.RED),
-                0, str2.length(), 0);
+        str2.setSpan(new ForegroundColorSpan(Color.RED), 0, str2.length(), 0);
         builder.append(str2);
-        textView.setText(builder);
+        textView.setText(builder, TextView.BufferType.SPANNABLE);
+    }
+
+    public int getTongTien() {
+        final int[] tongtien = {0};
+        list.forEach(orderHistoryModel -> {
+            if (orderHistoryModel.getFoods() != null) {
+                for (CartModel cartModel : orderHistoryModel.getFoods()) {
+                    tongtien[0] += cartModel.getAmount() * cartModel.getPrice();
+                }
+            }
+        });
+        return tongtien[0];
+    }
+
+    public int getSoLuongBanDuoc() {
+        final int[] slBanDUoc = {0};
+        list.forEach(orderHistoryModel -> {
+            if (orderHistoryModel.getFoods() != null) {
+                for (CartModel cartModel : orderHistoryModel.getFoods()) {
+                    slBanDUoc[0] += cartModel.getAmount();
+                }
+            }
+        });
+        return slBanDUoc[0];
+    }
+
+    public int getSoLuongGiayBanDuoc(int loaiGiay) {
+        final int[] soluonggiay = {0};
+        list.forEach(orderHistoryModel -> {
+            if (orderHistoryModel.getFoods() != null) {
+                for (CartModel cartModel : orderHistoryModel.getFoods()) {
+                    if (cartModel.getLoaiGiay() == loaiGiay) {
+                        soluonggiay[0] += cartModel.getAmount();
+                    }
+                }
+            }
+        });
+        return soluonggiay[0];
     }
 }
