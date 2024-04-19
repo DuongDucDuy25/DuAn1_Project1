@@ -55,6 +55,9 @@
             }
         }
 
+        //Khi người dùng nhấp vào imgProduct (hình ảnh sản phẩm),
+        // một Intent được tạo để mở hộp thoại chọn hình ảnh từ thư viện.
+        // Khi người dùng chọn hình ảnh, phương thức onActivityResult() được gọi để xử lý kết quả.
         private void setOnClick() {
             binding.imgProduct.setOnClickListener(view -> {
                 Intent i = new Intent();
@@ -63,6 +66,7 @@
                 startActivityForResult(Intent.createChooser(i, "Select Picture"), 100);
             });
 
+            // Kiểm tra các trường dữ liệu
             binding.btnThemMonAn.setOnClickListener(view -> {
 
                 if (TextUtils.isEmpty(imageUpload)) {
@@ -123,10 +127,12 @@
             if (resultCode == RESULT_OK) {
                 if (requestCode == 100) {
                     Uri selectedImageUri = data.getData();
+                    // Lấy uri của ảnh
                     if (null != selectedImageUri) {
                         binding.imgProduct.setImageURI(selectedImageUri);
                         binding.imgProduct.setVisibility(View.VISIBLE);
                         String imageName = "image_" + System.currentTimeMillis() + ".jpg";
+                        // tải ảnh lên FireBase Storage
                         upLoadImage(imageName, selectedImageUri);
                     }
                 }
@@ -135,6 +141,7 @@
 
         private void upLoadImage(String imageName, Uri imageUri) {
             ProgressHelper.showDialog(this, "");
+            // tạo StorageReference để thêm chiếu đến vị trí lưu trữ hình ảnh trong FireBase
             StorageReference imageRef = storageRef.child("images/" + imageName);
             // Tải hình ảnh lên Firebase Storage
             imageRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -152,6 +159,7 @@
         }
 
         private boolean isPerMissionReadImageSuccess() {
+            //checkSelfPermission() dùng để kiểm tra quyền truy cập ảnh
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES) == PackageManager.PERMISSION_GRANTED;
             }
@@ -159,6 +167,7 @@
         }
 
         private void requestPerMission() {
+            // Nếu chưa thì requestPerssions
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 100);
             } else {

@@ -40,14 +40,19 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
     }
 
     private void showStatistics() {
+        // định dạng số tiê thành chuỗi
         DecimalFormat formatter = new DecimalFormat("#,### VNĐ");
         int totalRevenue = calculateTotalRevenue();
         setSpannableStringBuilder("Doanh thu: ", formatter.format(totalRevenue), binding.textView5);
+        // tính tổng doanh thu và tổng số lượng sản phẩm
         int totalQuantitySold = calculateTotalQuantitySold();
+        // hiển thị lên giao diện
         setSpannableStringBuilder("Số lượng sản phẩm đã bán: ", totalQuantitySold + " sản phẩm", binding.textView6);
         showProductStatisticsByDay();
     }
 
+    // tính tổng số sản phẩm đã bán lặp lại danh sah đơn hàng
+    // sau đó nhân số lượng mặt hanàng với giá để tính tổng doanh thu
     private int calculateTotalRevenue() {
         int totalRevenue = 0;
         for (OrderHistoryModel orderHistoryModel : list) {
@@ -60,6 +65,7 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
         return totalRevenue;
     }
 
+    // tính tổng số sản phẩm đã bán sau đó cộng dồn số lượng mặt hàng
     private int calculateTotalQuantitySold() {
         int totalQuantitySold = 0;
         for (OrderHistoryModel orderHistoryModel : list) {
@@ -72,6 +78,7 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
         return totalQuantitySold;
     }
 
+    // hiển thị thông tin theo từng ngày
     private void showProductStatisticsByDay() {
         for (OrderHistoryModel orderHistoryModel : list) {
             String date = orderHistoryModel.getDate_order();
@@ -82,6 +89,8 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
             binding.linearLayout.addView(textView);
         }
     }
+
+    //tính tổng số lượng đã bán trong một ngày cụ thể
     private int calculateQuantitySoldByDate(String date) {
         int quantitySold = 0;
         for (OrderHistoryModel orderHistoryModel : list) {
@@ -93,6 +102,8 @@ public class ThongKeDoanhThuActivity extends AppCompatActivity {
         }
         return quantitySold;
     }
+
+    // xây dựng chuỗi văn bản có thể tùy chỉnh
     private void setSpannableStringBuilder(String textStart, String textEnd, TextView textView) {
         SpannableStringBuilder builder = new SpannableStringBuilder();
         SpannableString str1 = new SpannableString(textStart);

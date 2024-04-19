@@ -57,6 +57,7 @@ public class AllOrderFragment extends Fragment implements OrderHistoryAdapter.On
 
     }
 
+    // lọc đơn hàng theo trạng thái được chọn
     private void getOrder(int position) {
         List<OrderHistoryModel> listFilter = new ArrayList<>();
         list.forEach(new Consumer<OrderHistoryModel>() {
@@ -100,6 +101,7 @@ public class AllOrderFragment extends Fragment implements OrderHistoryAdapter.On
         binding.spinner.setAdapter(aa);
     }
 
+    // chuyển đổi sang chi tiết đơn hàng
     @Override
     public void onClick(int position) {
         Intent intent = new Intent(getContext(), OrderHistoryDetailActivity.class);

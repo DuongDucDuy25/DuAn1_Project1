@@ -57,6 +57,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
         return binding.getRoot();
     }
 
+    // lấy danh sách các mục giỏ hàng ở cơ sở dữ liêu
     private void getListCart() {
         if (userData != null) {
             list = databaseHandler.getAllCart(userData.getId());
@@ -141,6 +142,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
         });
     }
 
+    /// check quá trình đặt hàng
     @SuppressLint("SimpleDateFormat")
     private void order() {
         String date_order = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").format(new Date());
@@ -198,6 +200,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
         }
     }
 
+    // xóa sản phẩm khỏi giỏ hàng
     private void removeCart(CartModel cartModel) {
         if (cartModel != null) {
             int result = databaseHandler.removeCart(cartModel.getId());
@@ -218,6 +221,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
         }
     }
 
+    // tính toán giá và trả về
     private Long getTotalPrice() {
         long total = 0L;
         for (int i = 0; i < list.size(); i++) {
@@ -228,6 +232,7 @@ public class CartFragment extends Fragment implements CartAdapter.OnItemClickLis
         return total;
     }
 
+    // cập nhật giá
     @Override
     public void setTotalPrice() {
         DecimalFormat formatter = new DecimalFormat("#,###");

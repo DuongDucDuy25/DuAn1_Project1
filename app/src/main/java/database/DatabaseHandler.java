@@ -182,6 +182,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return db.delete(TABLE_CART, "id=?", new String[]{String.valueOf(id)});
     }
 
+    public int removeNguoiDung(int id){
+        SQLiteDatabase db = getWritableDatabase();
+        return  db.delete(TABLE_USER,"id = ?", new String[]{String.valueOf(id)});
+    }
+
     public void updateSoLuong(int idSanPham, int soLuongMua) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
